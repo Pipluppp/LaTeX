@@ -1,0 +1,356 @@
+\section{Limits and Continuity}
+In this chapter we will discuss about the most important concept in Calculus.
+
+The main idea of this section is how a function $x$ approaches the limit $l$
+near $a$, if we can make $f(x)$ as close as we like to $l$ by requiring that $x$ be
+sufficiently close to, but unequal to, $a$.
+
+\subsection{Limits of Function}
+\begin{eg}
+     Consider the function $f(x) =3x$ with $a=5$. Presumably $f$ should approach
+     the limit $15$ near $5$, we ought to be able to get $f(x)$ as close to $15$
+     as we like if we require that $x$ be sufficiently close to $5$. To be specific,
+     suppose we want to make sure that $3x$ is within $\tfrac{1}{10}$ of $15$ . This means that we
+     want to have 
+     \begin{equation*}
+         15-\dfrac{1}{10} < 3x < 15+\dfrac{1}{10},
+     \end{equation*}
+     which we can also write as 
+     \begin{equation*}
+         -\dfrac{1}{10} < 3x-15 <\dfrac{1}{10},
+     \end{equation*}
+     To do this we just have to require that
+     \begin{equation*}
+         -\dfrac{1}{30} < x-5 < \dfrac{1}{30}.
+     \end{equation*}
+     or simply $\abs{x-5}<\tfrac{1}{30}$. There is nothing special about the
+     number $\tfrac{1}{10}$. It is just as easy to guarantee that $\abs{3x-15}<
+     \tfrac{1}{10}$; simply require that $\abs{x-5} < \tfrac{1}{300}$. In fact
+     if we take any positive number $\varepsilon$ we can make $\abs{3x-15} <
+     \varepsilon$ simply by requiring that $\abs{x-5}<\tfrac{\varepsilon}{3}$. 
+
+     There's also nothing special about the choice $a = 5$. It's just as easy to
+    see that $f$ approaches the limit $3a$ at $a$ for any $a$: To ensure that
+    \begin{equation*}
+        \abs{3x-3a}< \varepsilon
+    \end{equation*}
+    we just have to require that 
+    \begin{equation*}
+        \abs{x-a}<\dfrac{\varepsilon}{3}.
+    \end{equation*}
+\end{eg}
+We can now have the formal definition of a limit, however, we will define it
+based upon the concepts of \emph{ deleted neighbourhoods} and \emph{limit
+points}.
+\begin{defi}[Neighbourhood]
+     Given a point $c \in \R$, a \emph{neighbourhood} of $c$ is any open interval 
+     $I \subseteq \R$ that contains $c$.
+
+     A common way to construct a neighborhood for a real number $c$ is to
+     designate some $\gamma > 0$ usually regarded as being quite small, and
+     consider the interval $(c-\gamma,c+\gamma)$.This is the open interval
+     with center $c$ and radius $\gamma$, which we will frequently denote by
+     the symbol $B_\gamma(c)$ and call the $\gamma$-neighborhood of $c$;
+     that is
+     \begin{equation*}
+         B_\gamma(c) = (c-\gamma,c+\gamma)
+     \end{equation*}
+     for any $\gamma  >0$.
+\end{defi}
+\begin{defi}[Deleted neighbourhood]
+     A \emph{deleted neighbourhood} of $c \in \R$ is a neighborhood of $c$ with
+     $c$ removed.
+     
+     It will be convenient to use the significantly more compact
+     symbol $B_\gamma'(c)$ to denote the deleted $\gamma$-neighborhood of $c$
+    \begin{equation*}
+        B_\gamma'(c) =(c-\gamma,c) \cup (c,c+\gamma).
+    \end{equation*}
+    Observe that $x \in B_\gamma'(c)$ if and only if $0<\abs{x-c}<\gamma$.    
+\end{defi}
+\begin{defi}
+     A point $x \in \R$ is a \emph{limit point} of a set $S\subseteq\R$ if
+     \begin{equation*}
+        B_\gamma'(x) \cap S \neq \varnothing 
+     \end{equation*}
+     for all $\gamma>0$.
+\end{defi}
+\begin{eg}
+     The point $a$ is a limit point of $(a,b)$.This is because no matter how small $\gamma$ > 0
+     is, there are points in $(a, b)$ that lie between $a$ and $a + \gamma$ , and hence
+     \begin{align*}
+         B_\gamma'(a) \cap (a,b) &= \left[ (a-\gamma,a) \cup (a,a+\gamma)\right]
+         \cap (a,b) \\
+         &= \left[ (a-\gamma,a) \cap (a,b)\right] \cup \left[ (a,a+\gamma) \cap 
+         (a,b)\right] \\
+         &= (a,a+\gamma) \cap (a,b) \neq \varnothing
+     \end{align*}
+     In fact, every $x \in (a, b)$ is a limit point of $(a, b)$. Put another way, the
+set of limit points of the open interval $(a, b)$ is the closed interval $[a, b]$.
+\end{eg}
+Defining the \emph{deleted neighbourhood} and \emph{limit points}. We now make use
+of them for the formal definition of limits.
+
+We assume that any function $f$ is real-valued, and has domain $D$ that is a subset
+of the set of real numbers $\R$; that is, $f : D \rightarrow \R$ for some $D \subseteq \R$.
+\begin{defi}[Limit of function]
+    Let $f$ be a real-valued function, and let $c \in R$ be a \emph{limit point} of $Dom(f)$.
+    Given $L \in \R$, we say $f$ has limit $L$ at $c$, written
+    \begin{equation*}
+         \lim_{x \to c} f(x)=L, 
+    \end{equation*}
+    if for each $\varepsilon >0$ there exists some $\delta >0$ such that, for 
+    any $x \in Dom(f)$,
+    \begin{equation*}
+        0<\abs{x-c}<\delta
+    \end{equation*} 
+\end{defi}
+\begin{remark}
+     Whenever we say that a limit $\lim_{x \to c} f(x)$ "exists", we mean there
+     is some $L \in \R$ such that $\lim_{x \to c} f(x)=L$. Otherwise we say that
+     the limit “does not exist.”  
+\end{remark}
+The main idea in limits is that we are given a $\varepsilon>0$ and we need to find 
+some $\delta >0 $ to bound the given $0<\abs{x-c}<\delta$ and conclude that 
+$\abs{f(x)-L} < \varepsilon$. We may assume the bound and "smallness" of $\delta$
+ as long as we satisfy $\varepsilon$.
+ \begin{eg}
+      Prove that
+      \begin{equation*}
+          \lim_{x \to 4} (2x+1) =9
+      \end{equation*}
+ \end{eg}
+ \begin{aim}
+      We must show that, for any $\varepsilon >0$, there is some $\delta >0$ 
+      such that $0<\abs{x-4}<\delta$ implies
+      \begin{equation*}
+          \abs{(2x+1)-9}<\varepsilon,
+      \end{equation*}
+      or equivalently (simplifying the left-hand side),
+      \begin{equation*}
+          \abs{2x-8}<\varepsilon.
+      \end{equation*}
+      However, since $\abs{2x-8} = 2\abs{x-4}$, we can rewrite it as 
+      $\abs{x-4}<\tfrac{\varepsilon}{2}$. Thuswe can choose $x$ is such that
+      $0<\abs{x-4}<\delta$ for $\delta = \tfrac{\varepsilon}{2}$. We now proceed 
+      with the formal proof.
+ \end{aim}
+ \begin{proof}
+      Let $\varepsilon>0$. Choose $\delta =\tfrac{\varepsilon}{2}$ and suppose 
+      $x$ is such that $0 <\abs{x-4}< \delta$. then $\abs{x-4}< \tfrac{\varepsilon}{2}$,
+    and since 
+    \begin{equation*}
+        \abs{x-4} < \tfrac{\varepsilon}{2} \Rightarrow \abs{(2x+1)-9}< \varepsilon,
+    \end{equation*}
+    the proof is done.
+ \end{proof}
+ \begin{eg}
+      Prove that
+      \begin{equation*}
+          \lim_{x \to a} x^2 = a^2
+      \end{equation*}
+ \end{eg}
+ \begin{aim}
+      We must show that for any $\varepsilon > 0$, there is some $\delta>0$ such
+      that $0<\abs{x-a}<\delta$ implies
+      \begin{equation*}
+          \abs{x^2-a^2}<\varepsilon
+      \end{equation*}
+      This means that we need to show how to ensure the inequality
+      \begin{equation*}
+          \abs{x^2-a^2}<\varepsilon
+      \end{equation*}
+      for any given positive number $\varepsilon$ by requiring $\abs{x-a}$ to be
+small enough. The obvious first step is to write
+      \begin{equation*}
+          \abs{x^2-a^2} = \abs{x-a}\cdot\abs{x+a}
+      \end{equation*}
+      which gives us the useful $\abs{x-a}$ factor which we have control of.
+      However, we need to say something about how big $\abs{x+a}$ is.
+
+      Require $\abs{x-a}<1$ with the expectation that it will ensure $\abs{x+a}$
+      is not too large.
+      \begin{equation*}
+          \abs{x}-\abs{a} \leq \abs{x-a} <1,
+      \end{equation*}
+      so
+      \begin{equation*}
+          \abs{x} <1+\abs{a}
+      \end{equation*}
+      and consequently
+      \begin{equation*}
+          \abs{x+a} \leq \abs{x}+\abs{a}<2\abs{a}+1.
+      \end{equation*}
+      so that then we have 
+      \begin{align*}
+          \abs{x^2-a^2} &=\abs{x-a}\cdot\abs{x+a}\\
+          &< \abs{x-a}\cdot(2\abs{a}+1).
+      \end{align*}
+      which shows that we have $\abs{x^2-a^2}<\varepsilon$ for
+      $\abs{x-a}<\dfrac{\varepsilon}{2\abs{a}+1}$, provided that we also have
+      $\abs{x-a}<1$.
+ \end{aim}
+\begin{proof}
+     Let $\varepsilon>0$. Choose $\delta = min(\tfrac{\varepsilon}{2\abs{a}+1},
+     1)$ and from $\abs{x-a}<1$ it follows that $\abs{x+a} < 2\abs{a}+1$.
+     Suppose $x$ is such that $0<\abs{x-a}<\delta$. Therefore,
+     \begin{align*}
+        \abs{x^2-a^2} &= \abs{x-a}\cdot \abs{x+a}\\
+        &< \abs{x-a}\cdot(2\abs{a}+1)\\
+        &< \dfrac{\varepsilon}{(2\abs{a}+1)} \cdot (2\abs{a}+1)\\
+        &= \varepsilon
+     \end{align*}
+     the proof is done.
+\end{proof}
+\newpage
+\begin{thm}[Uniqueness of Limits]
+    Let $f:A \to \R$ be a function and let $c$ be a limit point of $A$. Then, if
+    $L,M \in \R$ are both limits of $f$ at $c$, that is $\lim_{x \to c} f(x)=L$
+    and $\lim_{x \to c} f(x) = M$, then $L=M$.
+    \begin{proof}
+        Let $\lim_{x \to c} f(x)=L$ and $\lim_{x \to c} f(x) = M$, suppose that
+        $L \neq M$. We will show that this leads to a contradiction. Let
+        $\varepsilon>0$ be given.
+        \begin{itemize}
+            \item Since $\lim_{x \to c} f(x)=L$, then for
+            $\varepsilon_1=\tfrac{\varepsilon}{2}$, $\exists\delta_1 >0$ such that
+            if $x\in A$ and $0 < \abs{x-c}<\delta_1$, then
+            $\abs{f(x)-L}<\varepsilon_1=\tfrac{\varepsilon}{2}$.
+            \item Similarly, since $\lim_{x \to c} f(x)=M$, then for
+            $\varepsilon_2=\tfrac{\varepsilon}{2}$, $\exists\delta_2 >0$ such that
+            if $x\in A$ and $0 < \abs{x-c}<\delta_2$, then
+            $\abs{f(x)-L}<\varepsilon_2=\tfrac{\varepsilon}{2}$.
+        \end{itemize}
+        Now let $\delta = min\{\delta_1,\delta_2\}$ and so we have that :
+        \begin{align*}
+            \abs{L-M} = \abs{L-f(x)+f(x)-M)} &\leq \abs{f(x)-L}+\abs{f(x)-M}\\
+           &< \varepsilon_1+\varepsilon_2 \\
+           &= \dfrac{\varepsilon}{2}+\dfrac{\varepsilon}{2} \\
+           &= \varepsilon
+        \end{align*}
+        But $\varepsilon>0$ is arbitrary, this implies $\abs{L-M}=0$, that is
+        $L=M$, a contradiction. So our assumption that $L\neq M$ was false, and
+        so if $\lim_{x \to c} f(x)=L$ then $L$ is unique.
+    \end{proof}
+\end{thm}
+
+\subsection{One-sided Limits}
+\begin{defi}[Right-Hand Limit] Let $f$ be a real-valued function, and let $c \in
+     \R$ be such that $Dom(f) \cap (c,c+\gamma)\neq \varnothing$ for all
+     $\gamma>0$. Given $L \in \R$, we say $f$ has a \emph{right-hand limit} $L$
+     at $c$, written
+     \begin{equation*}
+         \lim \limits_{x \to c^+} f(x) = L,
+     \end{equation*}
+     if for all $\varepsilon>0$ there exists some $\delta>0$ such that, for any
+     $x \in Dom(f)$,
+     \begin{equation*}
+         c<x<c+\delta \Rightarrow \abs{f(x)-L}<\varepsilon
+     \end{equation*}
+\end{defi}
+\begin{defi}[Left-Hand Limit] Let $f$ be a real-valued function, and let $c \in
+    \R$ be such that $Dom(f) \cap (c-\gamma,c+)\neq \varnothing$ for all
+    $\gamma>0$. Given $L \in \R$, we say $f$ has a \emph{left-hand limit} $L$
+    at $c$, written
+    \begin{equation*}
+        \lim \limits_{x \to c^-} f(x) = L,
+    \end{equation*}
+    if for all $\varepsilon>0$ there exists some $\delta>0$ such that, for any
+    $x \in Dom(f)$,
+    \begin{equation*}
+        c-\delta<x<c \Rightarrow \abs{f(x)-L}<\varepsilon
+    \end{equation*}
+\end{defi}
+\newpage
+\begin{thm}
+     If
+    \begin{equation*}
+        \lim \limits_{x \to c^-} f(x) =\lim \limits_{x \to c^+} f(x)=L
+    \end{equation*}
+    for some $L \in \R$, then 
+    \begin{equation*}
+        \lim \limits_{x \to c} f(x) =L
+    \end{equation*}
+    \begin{proof}
+         Assume the premise. Let $\varepsilon >0$. There exist $\delta_1>0$ such
+         that, for all $x \in Dom(f)$,
+         \begin{equation*}
+             c- \delta_1<x<c \Rightarrow \abs{f(x)-L}<\varepsilon,
+         \end{equation*}
+         and there also exist some $\delta_2>0$ such that, for all $x\in Dom(f)$,
+         \begin{equation*}
+             c<x<c+\delta_2 \Rightarrow \abs{f(x)-L}<\varepsilon.
+         \end{equation*}
+         Let $min\{\delta_1,\delta_2\}$. Suppose $x \in Dom(f)$ is such that
+         $0<\abs{x-c}<\delta$. Then either $c-\delta<x<c$ or $c<x<c+\delta$ must
+         be the case, which implies
+         \begin{equation*}
+             c-\delta_1<x<c \text{ and } c<x<c+\delta_2
+         \end{equation*}
+         it follows that
+         \begin{equation*}
+             \abs{f(x)-L}<\varepsilon
+         \end{equation*}
+         Therefore, $\lim_{x \to c} f(x)=L$.
+    \end{proof}
+\end{thm}
+\begin{remark}
+     The converse is not true in general. That is if $\lim_{x \to c} f(x)=L$,
+     then it is not necessarily true that both one-sided limits will be $L$.
+
+     For example, $\lim_{x \to 0} \sqrt{x} = 0$, and also $\lim_{x \to 0^+} \sqrt{x}
+     = 0$, but $\lim_{x \to 0^-} \sqrt{x}$ does not exist.
+\end{remark}
+
+\newpage
+\subsection{Properties of Limits}
+The following give general properties of two-sided limits which carry on to
+one-sided limits. These properties will help us in solving limits.
+
+\begin{thm}[Laws of Limits]
+     Suppose $a,c \in \R$. If 
+     \begin{equation*}
+         \lim\limits_{x \to c} f(x)=L \text{ and } \lim\limits_{x \to c} g(x)=M
+     \end{equation*}
+     for some $L,M \in \R$, then the following hold.
+     \begin{enumerate}
+         \item $\lim\limits_{x \to c} a=a$
+         \item $\lim\limits_{x \to c} af(x)=a\lim\limits_{x \to c}f(x)$
+         \item $\lim\limits_{x \to c} [f(x)\pm g(x)] = \lim\limits_{x \to c}
+         f(x) \pm \lim\limits_{x \to c} g(x)$
+         \item $\lim\limits_{x \to c} [f(x)g(x)] = \lim\limits_{x \to c} f(x)
+         \cdot \lim\limits_{x \to c} g(x)$
+         \item Provided that $\lim\limits_{x \to c} g(x) \neq 0$,
+         \begin{equation*}
+            \lim\limits_{x \to c} \dfrac{f(x)}{g(x)} = \dfrac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)}.
+         \end{equation*}
+         \item For any integer $n>0$, 
+            \begin{equation*}
+                \lim\limits_{x \to c} [f(x)]^n = [\lim\limits_{x \to c} f(x)]^n
+            \end{equation*}
+        \item For any integer $m>0$, 
+            \begin{equation*}
+                \lim\limits_{x \to c} \sqrt[m]{f(x)} = \sqrt[m]{\lim\limits_{x \to c} f(x)}
+            \end{equation*}
+            provided there exists $\gamma>0$ such that $f(x)\geq 0$ for all $x
+            \in B_{\gamma}^{'}(c) \cap Dom(f)$ if $m$ is even.
+     \end{enumerate}
+     \begin{proof}[Proof of Law 1]
+        Let $\varepsilon > 0$. We can choose $ \delta = 1$, and then, supposing
+    that $0 < \abs{x-c} < 1$, we find immediately that $\abs{a-a} = 0 < \varepsilon$.
+     \end{proof}
+     \begin{proof}[Proof of Law 2]
+          If $a=0$, then    
+          \begin{equation*}
+              \lim\limits_{x \to c} 0 \cdot f(x) = \lim\limits_{x \to c} 0 =0=0 \cdot \lim\limits_{x \to c} f(x)
+          \end{equation*}
+          by Law $1$. Assume that $a \neq 0$. Let $\varepsilon>0$. Since
+          $\tfrac{\varepsilon}{\abs{a}}>0$ and $\lim_{x \to c}f(x)=L$, there
+          exists  some $\delta >0$ such that
+          $\abs{f(x)-L}<\tfrac{\varepsilon}{\abs{a}}$. Now, 
+          \begin{equation*}
+              \abs{a}\cdot \abs{f(x)-L}< \dfrac{\varepsilon}{\abs{a}} \cdot \abs{a},
+          \end{equation*}
+          implies that $\abs{af(x)-aL}<\varepsilon$
+     \end{proof}
+\end{thm}

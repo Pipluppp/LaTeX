@@ -1,0 +1,636 @@
+     \section{Logic}
+\subsection{Statements}
+\begin{defi}[Statement]
+     A \emph{statement} is a declarative sentence or assertion that has a truth value, namely \emph{true} or \emph{false}.
+\end{defi}
+\begin{eg}
+     The following are statements:
+     \begin{enumerate}[label=(\roman*)]
+          \item The integer $3$ is odd.
+          \item The integer $57$ is prime.
+     \end{enumerate}
+\end{eg}
+\begin{defi}[Open Sentence]
+    An \emph{open sentence} is a declarative sentence that contains one
+    or more variables, each variable representing a value in some prescribed set, called the
+    \emph{domain} of the variable.
+\end{defi}
+\begin{eg}
+     The following are open sentences with variable $x$ in some domain $S$.
+     \begin{enumerate}
+          \item $3x=4$
+          \item $x^2+4x+3=0$
+     \end{enumerate}
+     An open sentence that contains a variable x is typically represented by $P(x)$, $Q(x)$ or
+    $R(x)$. If $P(x)$ is an open sentence, where the domain of $x$ is $S$, then we say $P(x)$ is an open
+    sentence over the domain $S$.
+\end{eg}
+
+\subsection{Negations}
+\begin{defi}[Negation]
+     The \emph{negation} of a statement $P$, denoted by $ \sim P$ is the statement
+     \begin{center}
+          \textbf{not} $P$
+     \end{center}
+\end{defi}
+The truth table for $\sim P$ is 
+\begin{center}
+    \begin{tabular}{cccccccc}
+      \toprule
+      $P$ & $\sim P$  \\
+      \midrule
+      T & \textbf{F} \\
+      T & \textbf{F} \\
+      F & \textbf{T} \\
+      F & \textbf{T} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\begin{eg}
+    The negation of the statement
+    \begin{equation*}
+         P_1: \text{The integer $3$ is odd.}
+    \end{equation*}
+    is 
+    \begin{equation*}
+         \sim P_1:\text{The integer $3$ is even.}
+    \end{equation*}
+\end{eg}
+\begin{eg}
+     The negation of the statement          
+    \begin{equation*}
+          P_2:\text{The real number $r$ is at most $\sqrt{2}$} 
+    \end{equation*}
+    is 
+    \begin{equation*}
+         \sim P_2:\text{The real number $r$ is greater than $\sqrt{2}$}
+    \end{equation*}
+\end{eg}
+
+\subsection{Disjunctions and Conjunctions}
+\begin{defi}[Disjunction]
+     The \emph{disjunction} of the statements $P$ and $Q$ is the statement
+    \begin{center}
+         $P$ \textbf{or} $Q$
+    \end{center}
+    denoted by $P \vee Q$.
+\end{defi}
+\begin{defi}
+     The \emph{conjunction} of the statements $P$ and $Q$ is the statement
+     \begin{center}
+        $P$ \textbf{and} $Q$
+     \end{center}
+     denoted by $P \wedge Q$
+\end{defi}
+The truth table for $P \vee Q$ and $P \wedge Q$ is 
+\begin{center}
+    \begin{tabular}{cccccccc}
+      \toprule
+      $P$ & $Q$ &\quad &$P \vee Q$ &$P \wedge Q$ \\
+      \midrule
+      T & T & & \textbf{T} & \textbf{T} \\
+      T & F & & \textbf{T} & \textbf{F} \\
+      F & T & & \textbf{T} & \textbf{F} \\
+      F & F & & \textbf{F} & \textbf{F} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+\subsection{Implications}
+\begin{defi}[Implication]
+    For statements $P$ and $Q$, the \emph{implication}
+    (or \emph{conditional}) is the statement
+    \begin{center}
+         \textbf{If} $P$, \textbf{then} $Q$.
+    \end{center}
+    denoted by $P \Rightarrow Q$. Which can also be expressed as
+    \begin{center}
+         $P$ \textbf{implies} $Q$.
+    \end{center}
+\end{defi}  
+The truth table for $P \Rightarrow Q$ is 
+\begin{center}
+    \begin{tabular}{cccccccc}
+      \toprule
+      $P$ & $Q$ &\quad &$P \Rightarrow Q$  \\
+      \midrule
+      T & T & & \textbf{T} \\
+      T & F & & \textbf{F} \\
+      F & T & & \textbf{T} \\
+      F & F & & \textbf{T} \\
+      \bottomrule
+    \end{tabular}
+\end{center}   
+In summary, $P \Rightarrow Q$ is false when $P$ is True and $Q$ is false.
+\medbreak
+The following have the same truth value
+
+\begin{itemize}
+     \item $\sim (P \Rightarrow Q)$ and P $\wedge \sim Q$
+     \item $P \Rightarrow Q$ and $\sim P \vee Q$
+\end{itemize}
+
+The following are equivalent statements
+\begin{itemize}
+     \item If $P$, then $Q$
+     \item $Q$ if $P$
+     \item $P$ implies $Q$
+     \item $P$ only if $Q$
+     \item $P$ is sufficient for $Q$
+     \item $Q$ is necessary for $P$
+\end{itemize}
+
+\begin{eg}
+     A triangle is \emph{equilateral} if the lengths of its three sides 
+     are the same, while \emph{isosceles} if any two of its three sides 
+     are the same.
+
+     For a triangle $T \in S$, let 
+     \begin{center}
+          $P(T)$: $T$ is equilateral \qquad and \qquad $Q(T)$: $T$ is isosceles
+     \end{center}
+     Consider the implication $P(T) \Rightarrow Q(T)$
+     \begin{enumerate}[label=(\roman*)]
+          \item For an equilateral triangle $T_1$, both $P(T_1)$ and $Q(T_1)$
+          are true and so  $P(T_1) \Rightarrow Q(T_1)$ is also true.
+          \item If $T_2$ is not an equilateral triangle, then $P(T_2)$ is a 
+          false statement and so $P(T_2) \Rightarrow Q(T_2)$ is true regardless
+          of the truth of $Q(T_2)$.
+     \end{enumerate}
+     We now state $P(T) \Rightarrow Q(T)$ in a variety of ways:
+     \begin{itemize}
+        \item If $T$ is an equilateral triangle, then $T$ is isosceles.
+        \item  A triangle $T$ is an isosceles if $T$ is equilateral.
+        \item A triangle $T$ is equilateral only if $T$ is isosceles.
+        \item For a triangle $T$ to be isosceles, it is sufficient that $T$ be equilateral.
+        \item For a triangle $T$ to be equilateral, it is necessary that $T$ be isosceles.
+     \end{itemize}
+\end{eg}
+
+\subsection{Biconditionals}
+\begin{defi}[Converse]
+    For statements (or open sentences) $P$ and $Q$, the implication $Q \Rightarrow P$ 
+    is called the \emph{converse} of $P \Rightarrow Q$.
+\end{defi}
+\begin{eg}
+     For the statements
+     \begin{center}
+          $P_1$: $3$ is an odd integer \qquad and \qquad $P_2$: $57$ is prime.
+     \end{center} 
+     the converse of the implication
+     \begin{center}
+          $P_1 \Rightarrow P_2$: If $3$ is an odd integer, then $57$ is prime.
+     \end{center}
+     is the implication
+     \begin{center}
+          $P \Rightarrow Q$: If $57$ is prime, then $3$ is an odd integer. 
+     \end{center}
+\end{eg}
+\begin{defi}[Biconditional]
+    For statements (or open sentences) $P$ and $Q$, the conjunction
+    \begin{equation*}
+         (P \Rightarrow Q) \wedge (Q \Rightarrow P)
+    \end{equation*}
+    of the implication $P \Rightarrow Q$ and its converse is called the
+    \emph{biconditional} of $P$ and $Q$, denoted by $P \Leftrightarrow Q$.
+\end{defi}
+Truth table of $P \Leftrightarrow Q$
+\begin{center}
+    \begin{tabular}{cccccccc}
+      \toprule
+      $P$ & $Q$ &\quad & $P\Rightarrow Q$ & $Q\Rightarrow P$ & 
+      $(P\Rightarrow Q) \wedge (Q\Rightarrow P)$ & $P \Leftrightarrow Q$\\
+      \midrule
+      T & T & & T & T & T & \textbf{T} \\
+      T & F & & F & T & F & \textbf{F} \\
+      F & T & & T & F & F & \textbf{F} \\
+      F & F & & T & T & T & \textbf{T} \\
+      \bottomrule
+    \end{tabular}
+\end{center}
+The biconditional $P \Leftarrow Q$ is often stated as 
+\begin{center}
+     $P$ \textbf{is equivalent to} $Q$.
+\end{center}
+or
+\begin{center}
+     $P$ \textbf{if and only if} $Q$. 
+\end{center}
+or as 
+\begin{center}
+     $P$ \textbf{is necessary and sufficient for} $Q$.
+\end{center}
+For statements $P$ and $Q$, it then follows that the biconditional \textit{“P if and only if Q”} 
+is true only when $P$ and $Q$ have the same truth values.
+\begin{eg}
+     For the open sentences
+     \begin{center}
+          $P(T)$: $T$ is equilateral \qquad and \qquad $Q(T)$: $T$ is isosceles.
+     \end{center}
+     over the domain $S$ of all triangles, the converse of the implication
+     \begin{center}
+          $P(T) \Rightarrow Q(T)$: If $T$ is equilateral, then $T$ is isosceles.
+     \end{center}
+     is the implication
+     \begin{center}
+          $Q(T) \Rightarrow P(T)$: If $T$ is isosceles, then $T$ is equilateral.
+     \end{center}
+     We noted that $P(T) \Rightarrow Q(T $ is a true statement for all triangles $T$, while $Q(T) \Rightarrow P(T)$
+    is a false statement when $T$ is an isosceles triangle that is not equilateral. On the other
+    hand, the second implication becomes a true statement for all other triangles $T$. Therefore, the biconditional
+     \begin{center}
+          $P(T) \Leftrightarrow Q(T)$: $T$ is equilateral if and only if $T$ is isosceles.
+     \end{center}
+     is false for all triangles that are isosceles and not equilateral, while it is true for all other
+    triangles $T$.
+\end{eg}
+
+\subsection{Tautologies and Contradictions}
+\begin{defi}[Logical Connectives]
+     A \emph{logical connective} is a symbol or word used to connect two or more sentences
+     n a grammatically valid way, such that the value of the compound sentence produced 
+     depends only on that of the original sentences and on the meaning of the connective.
+     \begin{equation*}
+          \sim,\:\wedge,\:\vee,\:\Rightarrow,\:\Leftrightarrow 
+     \end{equation*}
+\end{defi}
+\begin{defi}[Compound statement]
+    a \emph{compound statement}is a statement composedof one or more 
+    given statements (called \emph{component statements} in this context) and
+    at least one logical connective.
+\end{defi}
+\begin{eg}
+     For a given statement $P$, its negation $\sim P$ is a compound statement.
+\end{eg}
+\begin{defi}[Tautology]
+    A compound statement $S$ is called a \emph{tautology} if it is true for 
+    all possible combinations of truth values of the component statements
+\end{defi}
+\begin{eg}
+     The compound statement $P\;\vee \sim P$ is a tautology
+     \begin{center}
+        \begin{tabular}{cccccccc}
+          \toprule
+          $P$ & $\sim P$ &$P\;\vee \sim P$ \\
+          \midrule
+          T & F & \textbf{T} \\
+          T & F & \textbf{T} \\
+          F & T & \textbf{T} \\
+          F & T & \textbf{T} \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+\end{eg}
+\begin{eg}
+    For statements $P$ and $Q$, the compound statement $(\sim Q) \vee (P \Rightarrow Q)$ 
+    is a tautology, as is verified in the truth table.
+    \begin{center}
+        \begin{tabular}{cccccccc}
+          \toprule
+          $P$ & $Q$ &$\sim Q$ & $P \Rightarrow Q$& $(\sim Q) \vee (P \Rightarrow Q)$ \\
+          \midrule
+          T & T & F & T & \textbf{T} \\
+          T & F & T & F & \textbf{T} \\
+          F & T & F & T & \textbf{T} \\
+          F & F & T & T & \textbf{T} \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+\end{eg}
+\begin{defi}[Contradiction]
+    A compound statement $S$ is called a \emph{contradiction} if it is false 
+    for all possible combinations of truth values of the component statements.
+\end{defi}
+\begin{eg}
+    The compound statement $P \: \wedge \sim P$ is a contradiction.
+    \begin{center}
+        \begin{tabular}{cccccccc}
+          \toprule
+          $P$ & $\sim P$ &$P\;\wedge \sim P$ \\
+          \midrule
+          T & F & \textbf{F} \\
+          T & F & \textbf{F} \\
+          F & T & \textbf{F} \\
+          F & T & \textbf{F} \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+\end{eg}
+\begin{eg}
+    For statements $P$ and $Q$, the compound statement $(P \wedge Q) \wedge (Q \Rightarrow (\sim P))$ 
+    is a contradiction, as is verified in the truth table.
+    \begin{center}
+        \begin{tabular}{cccccccc}
+          \toprule
+          $P$ & $Q$ &$\sim P$ & $P \wedge Q$ & $Q \Rightarrow (\sim P)$ & 
+          $(P \wedge Q) \wedge (Q \Rightarrow (\sim P))$ \\
+          \midrule
+          T & T & F & T & F & \textbf{F} \\
+          T & F & F & F & T & \textbf{F} \\
+          F & T & T & F & T & \textbf{F} \\
+          F & F & T & F & T & \textbf{F} \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+\end{eg}
+\begin{defi}[Modus Ponens]
+    For statements $P$ and $Q$, $(P \wedge (P \Rightarrow Q)) \Rightarrow Q$ 
+    is a tautology. (This logical argument form is called \emph{modus ponens})
+    \medbreak
+    \begin{center}
+        If $P$ is true and $P \Rightarrow Q$ is true, then $Q$ is true.
+    \end{center}
+    \begin{center}
+        \begin{tabular}{cccccccc}
+          \toprule
+          $P$ & $Q$ &$P \Rightarrow Q$ & $P \wedge (P \Rightarrow Q)$ 
+          & $(P \wedge (P \Rightarrow Q) \Rightarrow Q)$ & \\
+          \midrule
+          T & T & T & T & \textbf{T}  \\
+          T & F & F & F & \textbf{T}  \\
+          F & T & T & F & \textbf{T}  \\
+          F & F & T & F & \textbf{T}  \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+\end{defi}
+\begin{defi}[Syllogism]
+    For statements $P,Q$, and $R$ show that 
+    $((P \Rightarrow Q) \wedge (Q \Rightarrow R)) \Rightarrow R)$ 
+    is a tautology. (This logical argument form is called \emph{syllogism})
+    \medbreak
+    \begin{center}
+        If $P \Rightarrow Q$ and $Q \Rightarrow R$, then $P \Rightarrow R$
+    \end{center}
+\end{defi}
+\subsection{Logical Equivalence}
+\begin{defi}[Logical Equivalence]
+    Let $R$ and $S$ be two compound statements involving the 
+    same component statements $P$ and $Q$. Then $R$ and $S$ are 
+    called \emph{logically equivalent} if $R$ and $S$ have the same truth
+     values for all combinations of truth values of their component statements
+     denoted by
+     \begin{equation*}
+          R \equiv S
+     \end{equation*}
+\end{defi}
+\begin{eg}
+    The statements $P \implies Q$ and $(\sim P) \vee Q$ are 
+    logically equivalent,in other words 
+    $P \implies Q \equiv (\sim P) \vee Q$.
+    \begin{center}
+        \begin{tabular}{cccccccc}
+          \toprule
+          $P$ & $Q$ &$\sim P$ & $P \Rightarrow Q$ 
+          & $(\sim P) \vee Q$ & \\
+          \midrule
+          T & T & F & \textbf{T} & \textbf{T}  \\
+          T & F & F & \textbf{F} & \textbf{F}  \\
+          F & T & T & \textbf{T} & \textbf{T}  \\
+          F & F & T & \textbf{T} & \textbf{T}  \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+\end{eg}
+Logical equivalence guarantess the truth of the other statement.
+If we can establish the truth of the statement $(\sim P) \vee Q$,
+ then the logical equivalence of $P \Rightarrow Q$ and $(\sim P) \vee Q$ 
+ guarantees $P \Rightarrow Q$ is also true.
+\begin{eg}
+     For the following statement
+     \begin{center}
+          \textit{If you earn an $A$ on the final exam, 
+          then you will receive an $A$ for the final grade.}
+     \end{center}
+     We need only know that the student did not receive an A on 
+     he final exam or the student received an $A$ as a final grade 
+     to see that the instructor kept her promise. 
+\end{eg}
+\begin{thm}
+     Let $P$ and $Q$ be two statements. Then
+     \begin{equation*}
+        P \Rightarrow Q \:\text{and}\: (\sim P) \vee Q
+     \end{equation*}
+     are logically equivalent.
+\end{thm}
+For the following statements
+\begin{center}
+     $Q \Rightarrow P$ is written as "$P$ if $Q$"
+\end{center}
+\begin{center}
+    $P \Rightarrow Q$ is written as "$P$ only if $Q$".
+\end{center}
+their conjunction can be written as "$P$ if $Q$ and $P$ only if
+ $Q$", or more simply
+ \begin{center}
+    $P$ if and only if $Q$
+\end{center}
+
+\subsection{Fundamental Properties of Logical Equivalence}
+\begin{thm}
+    For statements $P$, $Q$, and $R$.
+    \begin{enumerate}
+         \item \emph{Commutative Laws}
+         \begin{itemize}
+              \item $P \vee Q \equiv Q \vee P$
+              \item $P \wedge Q \equiv Q \wedge P$
+         \end{itemize}
+         \item \emph{Associative Laws}
+         \begin{itemize}
+              \item $P \vee (Q \vee R) \equiv (P \vee Q) \vee R$
+              \item $P \wedge (Q \wedge R) \equiv (P \wedge Q) \wedge R$
+         \end{itemize}
+         \item \emph{Distributive laws}
+         \begin{itemize}
+              \item $P \vee (Q \wedge R) \equiv (P \vee Q) \wedge (P \vee R)$
+              \item $P \wedge (Q \vee R) \equiv (P \wedge Q) \vee (P \wedge R)$
+         \end{itemize}
+         \item \emph{De Morgan's Laws}
+         \begin{itemize}
+            \item $\sim (P \vee Q) \equiv (\sim P) \wedge (\sim Q)$
+            \item $\sim (P \wedge Q) \equiv (\sim P) \vee (\sim Q)$
+         \end{itemize}
+    \end{enumerate}
+\end{thm}
+\begin{thm}
+    For statements $P$ and $Q$
+    \begin{itemize}
+       \item $\sim(P \Rightarrow Q) \equiv P \wedge (\sim Q)$
+       \item $ \sim (P \Rightarrow Q) \equiv (P\wedge (\sim Q))\vee(Q\wedge (\sim P))$
+    \end{itemize}
+\end{thm}
+
+\begin{proof} We make use of the De Morgan's Laws
+    \begin{align*}
+        (P \Rightarrow Q) &\equiv\:\sim((\sim P) \vee Q)\\[1.25ex]
+        & \equiv (\sim (\sim P)) \wedge (\sim Q) \\[1.25ex]
+        & \equiv P \wedge \sim Q
+    \end{align*}
+\end{proof}
+\begin{proof} We make use of the De Morgan's Laws
+    \begin{align*}
+        \sim (P \Leftarrow Q) &\equiv \sim ((P \Rightarrow Q) \wedge
+        (Q \Rightarrow P)) \\[1.25ex]
+        &\equiv (\sim (P \Rightarrow Q)) \vee (\sim (Q \Rightarrow P)) \\[1.25ex] 
+        &\equiv (P \wedge (\sim Q)) \vee (Q \wedge (\sim P))
+    \end{align*}
+\end{proof}
+
+\subsection{Quantified Statements}
+If $P(x)$ is an open sentence over a domain $S$, then $P(x)$ 
+is a statement for each $x \in S$. \emph{Quantification} is a method 
+to convert open sentences to a \emph{quantified statement}.
+\begin{defi}[Universal Quantifier]
+    Adding the phrase \textit{"For every"} $x \in S$ to $P(x)$, where 
+    \textit{"for every"} is referred as universal quantifier 
+    denoted by $\forall$
+    \begin{equation*}
+        \forall x \in S,\: P(x).
+    \end{equation*}
+    in words
+    \begin{equation*}
+         \text{For every } x \in S,\: P(x)
+    \end{equation*}
+    The quantified statement is true if $P(x)$ is true for 
+    every $x\in S$; while false if for at least one element
+     $x\in S$, $P(x)$ is false.
+\end{defi}
+\begin{defi}[Existential Quantifier]
+    Each of the phrases \textit{“there exists”}, \textit{“there is"}, 
+    \textit{“for some”}, and \textit{“for at least one”} is
+    referred to as an \emph{existential quantifier} and is denoted by 
+    the symbol $\exists$. The quantified statement
+    \begin{equation*}
+         \exists x \in S, P(x)
+    \end{equation*}
+    can be expressed in words by
+    \begin{center}
+         There exists $x \in S$ such that $P(x)$.
+    \end{center}
+    The quantified statement is true if $P(x)$ 
+    is true for at least one element $x \in S$; while  false 
+    if $P(x)$ is false for all $x \in S$.
+\end{defi}
+\begin{eg}
+    The quantified statement $\forall x \in S,\: P(x)$ can be expressed
+    \begin{center}
+         If $x \in S$, then $P(x)$.
+    \end{center}
+\end{eg}
+\begin{eg}
+    Consider $P(x):\: x^2 \geq 0$ over $\mathbb{R}$. Then
+    \begin{equation*}
+        \forall x \in \mathbb{R},\: x^2 \geq 0
+    \end{equation*}
+    or equivalently
+    \begin{center}
+        For every real number $x$, $x^2 \geq 0$.
+    \end{center}
+    or 
+    \begin{center}
+        If $x$ is a real number, then $x^2 \geq 0$
+    \end{center}
+    The statement $ \forall x \in \mathbb{R},\: x^2 \geq 0$ is true
+\end{eg}
+\begin{eg}
+    Consider the open sentence $Q(x):\: x^2 \leq 0$.
+    \medbreak
+    The statement $\forall x \in \mathbb{R},\: Q(x)$ is false,
+     since $Q(1)$ is false. If it were not the case, then there 
+     must exist $x$ such that $x^2 > 0$. This negation
+     \begin{center}
+        There exists a real number $x$ such that $x^2 > 0$
+     \end{center}
+     can be written
+     \begin{equation*}
+        \exists x \in \mathbb{R},\: x^2 > 0 \;\text{or}\; 
+        \exists x \in \mathbb{R},\: \sim Q(x).
+     \end{equation*}
+\end{eg}
+More generally, if we are considering an open sentence $P(x)$ 
+over a domain $S$, then
+\begin{equation*}
+    \sim (\forall x \in S, P(x)) \equiv \exists x \in S, \sim P(x).
+\end{equation*}
+\begin{eg}
+    Consider $A=\{1,2,3\}$ and $\mathcal{P}(A)$, the power set of $A$.
+    \begin{equation*}
+         \text{For every set } B \in \mathcal{P}(A),\; A-B \neq \emptyset
+    \end{equation*}
+    is false since for the subset $B=A=\{1,2,3\}$, $A-B = \emptyset$. \\[1.5ex]
+    It can be written as
+    \begin{center}
+         If $B \subseteq A$, then $A-B \neq \emptyset$ 
+    \end{center}
+    The negation is 
+    \begin{center}
+         There exists $B \in \mathcal{P}(A)$ such that $A-B = \emptyset$
+    \end{center}
+    and can be expressed as
+    \begin{center}
+         There exist some subset $B$ of $A$ such that $A-B = \emptyset$
+    \end{center}
+\end{eg}
+Generally, if we are considering an open sentence $Q(x)$ over domain $S$.
+\begin{equation*}
+     \sim (\exists x \in S,\: Q(x))\: \equiv \: \forall x \in S,\: \sim Q(x)
+\end{equation*}
+
+For an open sentence containing two variables, the domains of 
+the variables need not be the same.
+\begin{equation*}
+    \sim (\forall s \in S,\: \forall t \in T,\:Q(s,t)) 
+    \equiv \exists s \in S,\: \exists t \in T,\: \sim Q(s,t)
+\end{equation*}
+
+\subsection{Characterizations}
+\begin{defi}[Characterization]
+    Suppose that some concept (or object) is expressed in an
+    open sentence $P(x)$ over a domain $S$ and $Q(x)$ is 
+    another open sentence over the domain $S$ concerning the 
+    concept. We say that this concept is \emph{characterized}
+    by $Q(x)$, if $\forall x \in S,\: P(x) \Leftrightarrow 
+    Q(x)$ is a true statement. The statement $\forall x \in S,\:
+    P(x) \Leftrightarrow Q(x)$ is then called a \emph{characterization} 
+    of this concept.
+\end{defi}
+\begin{eg}
+    Irrational numbers are defined as real numbers that are not 
+    rational and are characterized as real numbers whose decimal
+     expansions are nonrepeating.
+    
+     This provides a characterization of irrational numbers:
+     \begin{center}
+          \textit{A real number $r$ is irrational if and only if $r$ has 
+          a nonrepeating decimal expansion.}
+     \end{center}
+\end{eg}
+\begin{eg}
+    We saw that equilateral triangles are defined as triangles 
+    whose sides are equal. They are characterized, however, 
+    as triangles whose angles are equal.
+
+    Therefore, we have the characterization:
+    \begin{center}
+         \textit{A triangle $T$ is equilateral if and only if 
+         $T$ has three equal angles.}
+    \end{center}
+\end{eg}
+
+You might think that equilateral triangles are also characterized 
+as those triangles having three equal sides but the associated
+ biconditional:
+ \begin{center}
+      \textit{A triangle $T$ is equilateral if and only 
+      if $T$ has three equal sides}
+ \end{center}
+ is not a characterization of equilateral triangles. Indeed, this is 
+ the definition we gave of equilateral triangles.
+ \begin{eg}
+    Define an integer $n$ to be odd if $n$ is not even. Then a 
+    characterization of odd integers is
+    \begin{center}
+         \textit{An integer $n$ is odd if and only if $n^2$ is 
+         odd}
+    \end{center}
+ \end{eg}

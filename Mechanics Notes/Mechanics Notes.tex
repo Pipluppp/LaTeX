@@ -1,0 +1,305 @@
+\documentclass{article}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+
+
+\title{Mechanics Notes}
+\author{Duncan Bandojo}
+
+
+
+\input{header.tex}
+
+\begin{document}
+\maketitle
+{\small \noindent\textbf{Vectors and Kinematics}\\
+(Summary Information)\hspace*{\fill} [6]
+
+\tableofcontents
+\setcounter{section}{-1}
+\section{Introduction}
+(Introduction Summary)
+
+Notes on Introduction to Mechanics that is based on the text Kleppner and Kolenkow Mechanics 
+and Cambridge Dynamics and Relativity Notes.
+
+\section{Vectors and Kinematics}
+\subsection{Vector Addition}
+\begin{defi}[Vector Quantities]
+     Vector quantities have magnitude and direction. (Force, Displacement, Velocity, Acceleration)
+
+     Denoted ($\textbf{A},\;\textbf{B}, \ldots$)
+\end{defi}
+
+The magnitude of a vector $\textbf{A}$, denoted by $\abs{\textbf{A}}$ or $A$, is
+a scalar quantity that is always positive. 
+\begin{eg}
+   For a vector $\textbf{B}= 10m$ in some direction, then $\abs{\textbf{B}} = 10m$ 
+\end{eg}
+\begin{defi}[Vector Addition]
+     For the sum of the vectors $\textbf{A}$ and $\textbf{B}$ defined as
+     $\textbf{C}$. 
+     \[\textbf{A}+\textbf{B}=\textbf{C}\] The sum is the diaganoal of the
+     parallelogram formed by the $\textbf{A}$ and $\textbf{B}$. 
+\end{defi}
+\subsection{Vector Components}
+Let $\textbf{A}$ be a vector, we define $A_x, A_y,\;and\; A_z$ as the components
+parallel to their each respective axes. The components are not vector quantities.
+
+The magnitude of $\textbf{A}$ is
+    \[A = \sqrt{A_x^2+A_y^2}\]
+and the direction  of $\textbf{A}$ makes and angle 
+    \[\theta =\arctan(\dfrac{A_y}{A_x})\]
+
+The law for vector addition is 
+\[ \textbf{A}+\textbf{B}=(A_x+B_x,\:A_y+B_y\:A_z+B_z) \]
+\subsection{Vector Multiplication}
+\begin{defi}[Scalar Product]
+     The \emph{scalar product} is an operation that combines vectors to form a
+     scalar, denoted as $\textbf{A}\cdot\textbf{B}$, called the \emph{dot product} of 
+     $\textbf{A}$ and $\textbf{B}$. It is define by
+    \[\textbf{A} \cdot \textbf{B} = AB\cos\theta\] where $\theta$ is the angle
+    between $\textbf{A}$ and $\textbf{B}$ drawn tail-to-tail.
+
+    Because $B\cos\theta$ is the projection of $\textbf{B}$ along the direction
+of $\textbf{A}$, it follows that 
+\begin{align*}
+    \textbf{A} \cdot \textbf{B} &= A \text{ times the projection of } \textbf{B} \text{ on } \textbf{A}.\\
+    &= B \text{ times the projection of } \textbf{A} \text{ on } \textbf{B}.
+\end{align*}
+
+Hence, $\textbf{A}\cdot \textbf{A}$ = $\abs{\textbf{A}}^2 = A^2$. Also,
+$\textbf{A} \cdot \textbf{B} = \textbf{B} \cdot \textbf{A}$. 
+
+If either $\textbf{A}$ or $\textbf{B}$ is zero, their dot product is zero.
+However, because $\cos\tfrac{\pi}{2}=0$ the dot product of perpendicular
+vectors is zero.
+\end{defi}
+
+\begin{eg}
+     The dot product is used on \emph{Work}. The work $W$ done
+     on an object by a force $F$ is defined to be the product of the length
+     of the displacement $d$ and the component of $F$ along the direction of
+     displacement. If the force is applied at an angle $\theta$ with respect to the
+     displacement, 
+     \[W=(F\cos\theta)d\].
+     Which can be written as vectors
+     \[W = \textbf{W}\cdot \textbf{d}\].
+\end{eg}
+\begin{defi}[Vector Product]
+     Two vectors $\textbf{A}$ and $\textbf{B}$ are combined to form another vector
+     $\textbf{C}$. The vector product is often called as \emph{cross product}:
+     \[\textbf{C} = \textbf{A} \times \textbf{B}\]
+
+     The magnitude is defined as 
+     \[C = AB\sin\theta\] where $\theta$ is the angle between $\textbf{A}$ and
+     $\textbf{B}$ when drawn tail-to-tail.
+
+     To eliminate ambiguity, $\theta$ is always taken as the angle smaller than
+$\pi$. Even if neither vector is zero, their vector product is zero if $\theta =
+0$ or $\pi$, and also if the vectors are parallel or anti parallel. It follows that
+    \[\textbf{A} \times \textbf{A} = 0\]
+    for any vector $\textbf{A}$.
+
+    Two vectors $\textbf{A}$ and $\textbf{B}$ determine a plane. We define the
+    cross product, $\textbf{C}$ to be perpendicular to the plane of $\textbf{A}$
+    and $\textbf{A}$.
+
+    The convention is the \emph{right-hand rule} and we can think of if as a
+    right-hand screw, where $\textbf{A} \times \textbf{B}$ can be thought of as
+    swinging $\textbf{A}$ into $\textbf{B}$, then $\textbf{C}$, lies in the
+    direction the screw advances. Hence, 
+    \[\textbf{B} \times \textbf{A} \neq \textbf{A} \times \textbf{B}\].
+\end{defi}
+
+\begin{eg}
+     One application is the definition of \emph{torque}. Let the torque vector
+     $\tau$ be defined by
+     \[\tau =\textbf{r} \times \textbf{F} \] where $\textbf{r}$ is a vector from
+     the axis about which the torque is evaluated to the point of application of
+     the force $\textbf{F}$. This definition is consistent with the familiar
+     idea that torque is a measure of the ability of an applied force to produce
+     a twist. Note that a large force directed parallel to $\textbf{r}$ produces
+     no twist; it merely pulls. Only $F\sin\theta$, the component of force
+     perpendicular to $\textbf{r}$, produces a torque.
+
+     When we push a gate open, we instinctively apply force in such a way as to
+make $\textbf{F}$ closely perpendicular to $\textbf{F}$ , to maximize the
+torque. Because the torque increases as the lever arm gets larger, we push at
+the edge of the gate, as far from the hinge line as possible.
+\end{eg}
+\newpage
+\subsection{Base Vectors}
+Base vectors are orthogonal (mutually perpendicular) unit vectors, one for each
+dimension. In the Cartesian coordinate system of three dimensions, the base
+vectors lie along the $x$,$y$, and $z$ axes. Denoted by $\textbf{i}$,
+$\textbf{j}$, and $\textbf{k}$.
+\begin{align*}
+    \mathbf{i} \cdot \mathbf{i} &= \mathbf{j} \cdot \mathbf{j} = \mathbf{k} \cdot \mathbf{k} = 1 \\
+    \mathbf{i} \cdot  \mathbf{j} &=  \mathbf{j} \cdot  \mathbf{k} =  \mathbf{k} \cdot  \mathbf{i} = 0 \\
+    \mathbf{i} \times  \mathbf{j} &=  \mathbf{k} \\
+    \mathbf{j} \times  \mathbf{k} &=  \mathbf{i} \\
+    \mathbf{k} \times  \mathbf{i} &=  \mathbf{j}
+\end{align*}
+Hence, we can write any vector in terms of its components and base vectors:
+\[ \mathbf{A} = A_x \mathbf{i}+A_y \mathbf{j}+A_z \mathbf{k}\]
+To find the component of a vector in any direction, take the dot product
+with a unit vector in that direction.
+\[A_z = \mathbf{A} \cdot \mathbf{k}\]
+\subsection{Position vector $\mathbf{r}$ and Displacement }
+The components of $\mathbf{r}$ are the coordinates of the
+point referred to the particular coordinate axes.
+
+The three numbers $(x,y,z)$ do not represent components of a vector, they only
+specify a single point. The position of an arbitrary point $P$ at $(x,y,z)$ is
+written as:
+\[\mathbf{r} = (x,y,z) = x\mathbf{i}+y\mathbf{j}+z\mathbf{k}\] The displacement
+vector $\mathbf{S}$ from point $(x_1,y_1,z_1)$ to $(x_2,y_2,z_2)$ is \emph{true
+vector} and is not dependent on the coordinate system.
+
+Let $\mathbf{r}$ and $\mathbf{r^{\prime}}$ indicate the same position drawn in
+different coordinate systems. If $\mathbf{R}$ is the vector from the origin of
+the unprimed coordinate system to the origin of the primed coordinate system, we
+have $\mathbf{r} = \mathbf{R}+\mathbf{r^{\prime}}$. 
+\begin{align*}
+    \mathbf{S} &= \mathbf{r_2} - \mathbf{r_1} \\
+    &= (\mathbf{R}+ \mathbf{r_2^{\prime}}-(\mathbf{R}+\mathbf{r_1^{\prime}})) \\
+    &= \mathbf{r_2^{\prime} - \mathbf{r_1^{\prime}}}
+\end{align*}
+hence, it is independent of the coordinate systems of the initil and final position.
+
+\newpage
+\subsection{Velocitiy and Aceeleration}
+\subsubsection{Motion in One Dimension}
+The \emph{average velocity} $\bar{v}$ of the point between two times $t_1$ and
+$t_2$ is defined by 
+\[\bar{v} = \dfrac{x(t_2)-x(t_1)}{t_2-t_1}\].
+The \emph{instantaneous velocity} $v$ is the limit of the average velocity:
+\[v = \lim_{\Delta t \to 0} \dfrac{x(t+\Delta t)-x(t)}{\Delta t}\]
+which as we know as the derivative, hence, we write:
+\[v = \dfrac{dx}{dt}\]
+or as
+\[v = \dot{x}\]
+
+The \emph{instantaneous acceleration} $a$ is 
+\begin{align*}
+    a &= \lim_{\Delta t \to 0} \dfrac{v(t + \Delta t)-v(t)}{\Delta t}\\
+    &= \dfrac{dv}{dt} = \dot{v}.
+\end{align*}
+Using $v = dx/dt$, 
+\[a =\dfrac{d^2x}{dt^2} = \ddot{x}\]
+Here $d^2x/dt^2$ is called the second derivative of $x$ with respect to $t$.
+
+\subsubsection{Motion in Several Dimensions}
+The instantaneous position of the particle at time $t_1$ is 
+\[\mathbf{r}(t_1) = (x(t_1),y(t_1))\]
+or 
+\[ \mathbf{r}(t_1) = (x_1,y_2)\]
+
+The displacement of the particel between time $t_1$ and $t_2$ is 
+\[\mathbf{r}(t_2)-\mathbf{r}(t_1) = (x_2-x_1, y_2-y_1)\].
+
+The displacement of the particel during the interval $\Delta t$ is 
+\[\Delta \mathbf{r} = \mathbf{r}(t + \Delta t) - \mathbf{r}(t)\].
+This vector equation is equivalent  to two scalar equations
+\begin{align*}
+    \Delta x &= x(t+\Delta t)-x(t) \\
+    \Delta y &= y(t+ \Delta t) -y(t).
+\end{align*}
+The velocity $\mathbf{v}$ of the particle as it moves along the path is 
+\begin{align*}
+    \mathbf{v} &= \lim{\Delta t \to 0} \dfrac{\Delta \mathbf{r}}{\Delta t} \\
+    &=  \dfrac{d \mathbf{r}}{dt},
+\end{align*}
+which is equivalent to the two scalar equations
+\begin{align*}
+    V_x &= \lim_{\Delta t \to 0} \dfrac{\Delta x}{\Delta t} = \dfrac{dx}{dt} \\[1.25ex]
+    V_y &= \lim_{\Delta t \to 0} \dfrac{\Delta y}{ \Delta t} = \dfrac{dy}{dt}.
+\end{align*}
+
+We can also start with the definition $\mathbf{r} = x \mathbf{i} + y\mathbf{j} +
+z\mathbf{k}$, and differentiate: 
+\[\dfrac{d\mathbf{r}}{dt} = \dfrac{d(x\mathbf{i}+y\mathbf{j}+z\mathbf{k})}{dt}\]
+Where we can treat the Cartesian base vectors as constants:
+\[\dfrac{d\mathbf{r}}{dt} = \dfrac{dx}{dt}\mathbf{i} +
+\dfrac{dy}{dt}\mathbf{j}+\dfrac{dz}{dt}\mathbf{k}\]
+Similarly, acceleration $\mathbf{a}$ is defined by:
+\begin{align*}
+    \mathbf{a} &= \dfrac{d\mathbf{v}}{dt} = \dfrac{dV_x}{dt}\mathbf{i} + \dfrac{dV_y}{dt}\mathbf{j} + \dfrac{dV_z}{dt}\mathbf{k} \\
+    &= \dfrac{d^2\mathbf{r}}{dt}.
+\end{align*}
+
+\newpage
+\subsection{Formal Solution to Kinematical Equations}
+If the acceleration is a known function of time, the velocity can be found by
+\[\dfrac{d\mathbf{v}(t)}{dt} = \mathbf{a}(t)\]
+integration with respect to time. Writing the vector as 
+\[\dfrac{dv_x}{dt}\mathbf{i} + \dfrac{dv_y}{dt}\mathbf{j} +
+\dfrac{dv_z}{dt}\mathbf{k} = a_x\mathbf{i} + a_y\mathbf{j} + a_z\mathbf{k}.\]
+We can seperate the corresponding components 
+\[\dfrac{dv_x}{dt}= a_x, \qquad \dfrac{dv_y}{dt} = a_y, \qquad \dfrac{dv_z}{dt}
+= a_z\] If we know the velocity at time $t_0$, then we can integrate with
+respect to time to find the velocity at later time $t_1$:
+\begin{align*}
+    \int_{t_0}^{t_1} \dfrac{dv_x}{dt}\mathrm{d}t &= \int_{t_0}^{t_1} a_x \mathrm{d}t, \\[1.25ex]
+    v_x(t_1)-v_x(t_0) &= \int_{t_0}^{t_1} a_x(t) \mathrm{d}t, \\[1.25ex]
+    v_x(t_1) &= v_x(t_0)+\int_{t_0}^{t_1} a_x(t) \mathrm{d}t
+\end{align*}
+Treating the $y$ and $z$ velocity components similarly, we have
+\[\mathbf{v}(t_1) = \mathbf{v}(t_0) + \int_{t_0}^{t_1} \mathbf{a}(t)\mathrm{d}t\]
+To express the velocity at an arbitrary time $t$ we write
+\[\mathbf{v}(t) = \mathbf{v}_0 + \int_{t_0}^{t} \mathbf{a}(t^{\prime})\mathrm{d}t^{\prime}.\]
+
+Position is found by second integration. Starting with
+\[ \dfrac{d\mathbf{r}(t)}{dt} = \mathbf{v}(t), \]
+by the same argument before, we get
+\[\mathbf{r}(t) = \mathbf{r}_0 + \int_{t_0}^{t} \mathbf{v}(t^{\prime})
+\mathrm{d}t^{\prime}\] In \emph{uniform acceleration}. If we take $\mathbf{a} =
+$ constant and $t_0 = 0$, we get
+\begin{align*}
+    \mathbf{v}(t) &= \mathbf{v}_0 + \mathbf{a}t \\[1.25ex]
+    \mathbf{r}(t) &= \mathbf{r}_0 + \int_{0}^{t} (\mathbf{v}_0 + \mathbf{a}t^{\prime})\mathrm{d}t^{\prime,} 
+\end{align*}
+or 
+\[\mathbf{r}(t) = \mathbf{r}_0 + \mathbf{v}_0t + \dfrac{1}{2}\mathbf{a}t^2.\]
+
+\subsection{Polar Coordinates}
+\subsection{Time Derivatives}
+
+\newpage
+\section{Newtonian Mechanics}
+\subsection{Newton's Laws}
+
+\begin{defi}[Particle]
+    A \emph{particle} is an object of insignificant size. This means that if you want
+    to say what a particle looks like at a given time, the only information you
+    have to specify is its position.
+\medbreak
+    To describe the position of a particle we need a \emph{reference frame}.
+This is a choice of origin, together with a set of axes which, for now, we pick
+to be Cartesian. With respect to this frame, the position of a particle is
+specified by a vector \textbf{x}. Since a particle moves, the position depends
+on time, resulting in a \emph{trajectory} of the particle obatined by
+\[\mathbf{x} = \mathbf{x}(t) \]
+\end{defi}
+\begin{itemize}
+    \item \textbf{N1} Left alone, a particle moves with constant velocity.
+    \begin{center}
+         Intertial frames exist.
+    \end{center}
+    \item \textbf{N2} The acceleration (or, more precisely, the rate of change
+    of momentum) of a particle is proportional to the force acting upon it.
+    \[ \dfrac{d}{dt}(m\mathbf{\dot{x}}) = \mathbf{F}(\mathbf{x}, \mathbf{\dot{x}})\]
+    where the momentum is 
+    \[ \mathbf{p} \equiv m\mathbf{\dot{x}}\]
+    \item \textbf{N3} Every action has an equal and opposite reaction.
+\end{itemize}
+    
+
+
+
+
+
+
+
+\end{document}
