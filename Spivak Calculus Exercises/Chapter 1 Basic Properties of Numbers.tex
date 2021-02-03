@@ -440,21 +440,53 @@
               \end{align*}
          \end{proof}
          \item If $a>1$, then $a^2>a$.
-         \begin{proof}
-              
+         \begin{proof} Assume that $a>1$. Notice that $a-1>0$ and $a>0$, so
+         their product is positive,
+              \begin{align*}
+                  (a-1)\cdot a &> 0, \\
+                  a^2-a &>0,\\
+                  a^2 &> a.
+              \end{align*}
          \end{proof}
          \item If $0<a<1$, then $a^2<a$.
-         \begin{proof}
-              
+         \begin{proof} Assume that $0<a<1$, therefore $a>0$ and $1-a >0$ so that
+         their product is also positive,
+              \begin{align*}
+                  (1-a)\cdot a &>0, \\
+                    a-a^2 &> 0, \\
+                    a^2 &< a.
+              \end{align*}
          \end{proof}
          \item If $0\leq a<b$ and $0\leq c<d$, then $ac<bd$.
-         \begin{proof}
-              
+         \begin{proof}Assume that $0\leq a<b$ and $0\leq c<d$. Notice that
+         $bd>0$, and if either one of $a$ or $c$ is equal to zero so that $ac$ is zero, then
+              \begin{equation*}
+                  0=ac<bd.
+              \end{equation*}
+              Otherwise, if $a$ and $c$ are greater than zero then $ac$ is also greater than zero,
+              \begin{equation*}
+                  0<ac<bc<bd.
+              \end{equation*}
          \end{proof}
          \item If $0 \leq a<b$, then $a^2<b^2$.
-         \begin{proof}
-              
+         \begin{proof}Assume that $0 \leq a<b$. If $a=0$, then $a^2 = 0$ so that 
+              \begin{equation*}
+                  a^2 < b^2.
+              \end{equation*}
+              Suppose that $a>0$. From our assumption, $a<b$ therefore
+              \begin{equation*}
+                a^2 < ab < b^2.
+              \end{equation*}
          \end{proof}
          \item If $a,b \geq 0$ and $a^2<b^2$, then $a<b$.
+         \begin{proof}Suppose for contradiction that $a,b \geq 0$ and $a^2<b^2$,
+         but $a \geq b$. So either $a=b$ or $a>b$.
+
+         If $a=b$, then $a^2=b^2$, a contradiction. Now if $a>b \geq 0$, then 
+            \begin{equation*}
+                a^2 > ab> b^2
+            \end{equation*}
+            also a contradiction. Therefore it must be that $a<b$.
+         \end{proof}
      \end{enumerate}
 \end{exercise}
