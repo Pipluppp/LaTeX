@@ -28,12 +28,37 @@
         $a\cdot b$ is in $P$.
      \end{itemize}
 \end{defi}
+\begin{defi}[Absolute Value] For any number $a$, we define the \emph{absolute
+value} $\abs{a}$ of $a$ as follows:
+\[
+    \abs{a} = 
+    \begin{cases}
+         a, \hfill &\quad  a \geq 0 \\
+         -a, \hfill &\quad a \leq 0 
+    \end{cases}
+\]
+\end{defi}
 \begin{thm}[Triangle Inequality]
      For all numbers $a$ and $b$, we have
      \begin{equation*}
          \abs{a+b} \leq \abs{a}+\abs{b}
      \end{equation*}
 \end{thm}
+\begin{proof} We make use of the fact that if both $x$ and $y$ are nonnegative,
+then $x^2 < y^2$ implies $x < y$.
+      \begin{align*}
+          \abs{a+b}^2 &= a^2+2ab+b^2 \\
+          &= \abs{a}^2+2ab+\abs{b}^2 \\
+          &\leq \abs{a}^2+2\abs{a}\abs{b}+\abs{b}^2 \\
+          &=(\abs{a}+\abs{b})^2 
+      \end{align*}
+      Since $\abs{a+b}$ and $(\abs{a}+\abs{b})$ are both nonnegative, then
+      \begin{equation*}
+          \abs{a+b} \leq \abs{a}+\abs{b}.
+      \end{equation*}
+\end{proof}
+
+\subsubsection{Exercises}
 \begin{exercise}[\textbf{1}]
      Prove the following:
     \begin{enumerate}
@@ -489,4 +514,43 @@
             also a contradiction. Therefore it must be that $a<b$.
          \end{proof}
      \end{enumerate}
+\end{exercise}
+\pagebreak
+\begin{exercise}[\textbf{6}] Prove the following:
+     \begin{enumerate}
+         \item Prove that if $0 \leq x<y$, then $x^n < y^n$, $n=1,2,3,\dotsc$
+         \begin{proof} Assume that $0 \leq x < y$. From the previous problems,
+         it must be that $x^2<y^2$, and so on for all $n \in \N$.
+              
+         \end{proof}
+         \item Prove that if $x<y$ and $n$ is odd, then $x^n<y^n$.
+         \begin{proof}Assume tha $x<y$ and $n$ is odd. There are three cases:
+            \begin{itemize}
+                \item If $0 \leq x$, then by the previous exercise, it must be that
+                \begin{equation*}
+                    x^n < y^n.
+                \end{equation*} 
+                \item If $x<y\leq 0$, then it must be that $0 \leq -y < -x$. Therefore, 
+                \begin{align*}
+                    (-y)^n &< (-x)^n, \\
+                    -y^n &< -x^n, \\
+                    x^n &< y^n.
+                \end{align*}
+                \item If $x<0 \leq y$, then since $n$ is odd, it must be that 
+                \begin{equation*}
+                    x^n < 0 \leq y^n
+                \end{equation*}
+                so that $x^n < y^n$.
+            \end{itemize}
+              
+         \end{proof}
+         \item Prove that if $x^n = y^n$ and $n$ is odd, then $x=y$.
+         \begin{proof} 
+            If it is not, then it must be that $x^n < y^n$ or $x^n > y^n$.
+              
+         \end{proof}
+         \item Prove that if $x^n=y^n$ and $n$ is even, then $x=y$ or $x=-y$.
+         \begin{proof}
+         \end{proof}
+\end{enumerate}
 \end{exercise}
