@@ -1,5 +1,5 @@
 \section{Prologue}
-\subsection{Numbers of Various Sorts}
+\subsection{Basic Properties of Numbers}
 \begin{defi}[Field Properties] The following properties hold in $\R$
     
      \begin{itemize}
@@ -544,13 +544,246 @@ then $x^2 < y^2$ implies $x < y$.
             \end{itemize}
               
          \end{proof}
-         \item Prove that if $x^n = y^n$ and $n$ is odd, then $x=y$.
+         \item Prove that if $x^n = y^n$ and $n$ is odd, then $x=y$.(
          \begin{proof} 
             If it is not, then it must be that $x^n < y^n$ or $x^n > y^n$.
               
          \end{proof}
          \item Prove that if $x^n=y^n$ and $n$ is even, then $x=y$ or $x=-y$.
-         \begin{proof}
+         \begin{proof} We have three cases and we make use of (i): 
+            \begin{itemize}
+                \item Let $x,y \geq 0$. If $x^n=y^n$, then $x=y$. Since from
+                part (i), without loss of generality, $x\neq y$ implies that
+                $x^n < y^n$ for all $n \in \N$.
+                \item Let $x,y \leq 0$ so that $-x, -y \geq 0$. If $(-x)^n =
+                (-y)^n$, then $-x=-y$  so that $x=y$ for all $n\in \N$.
+                \item Let $x\leq 0, y \geq 0 $ so that $-x, y \geq 0$. If
+                $(-x)^n = y^n$, then $-x = y$ which is the same as $x=-y$, for all $n \in \N$.
+            \end{itemize}
+            We have now exhausted all the cases of $x$ and $y$. Therefore, if
+            $x^n=y^n$ where $n$ is even, then $x=y$ or $x=-y$. 
          \end{proof}
+\end{enumerate}
+\end{exercise}
+\pagebreak
+\begin{exercise}[\textbf{7}] Prove that if $0<a<b$, then 
+\begin{equation*}
+    a<\sqrt{ab}<\frac{a+b}{2}<b.
+\end{equation*}
+Notice that the inequality $\sqrt{ab} \leq (a+b)/2$ holds for all $a,b \geq 0$.
+A generalization of this fact occurs in Exercise $2-22$.
+\begin{proof} Since $0<a<b$, then we know that 
+     \begin{equation*}
+         a^2 = a\cdot a < ab < b\cdot b = b^2.
+     \end{equation*}
+     therefore $a < \sqrt{ab}<b$.
+
+     Notice also that 
+     \begin{equation*}
+         a = \frac{a+a}{2} < \frac{a+b}{2} < \frac{b+b}{2} = b.
+     \end{equation*}
+     so that $a < (a+b)/2$ and $b > (a+b)/2$.
+
+     Lastly, we must show that $\sqrt{ab} < (a+b)/2$. But since $a,b >0$, we
+     know that 
+     \begin{align*}
+         (a-b)^2 &>0, \\
+         a^2-2ab+b^2 &> 0, \\
+         a^2+2ab+b^2 &> 4ab, \\
+         (a+b)^2 &> 4ab, \\
+         \frac{a+b}{2} &> \sqrt{ab}
+     \end{align*}
+     for all $a,b$ such that $0<a<b$.
+\end{proof}
+\end{exercise}
+\begin{exercise}[\textbf{12}] Prove the following:
+     \begin{enumerate}
+         \item $\abs{xy} = \abs{x} \cdot \abs{y}$.
+         \begin{proof} We will prove this fact the same way we proved the
+         \emph{Triangle Inequality}, by using that fact that if $x^2 = y^2$ and
+         $x,y$ are nonnegative, then $x=y$. Notice
+              \begin{equation*}
+                  |xy|^2 = (xy)^2 = x^2y^2 = |x|^2\cdot |y|^2 = (|x|\cdot |y|)^2.
+              \end{equation*}
+        Since $|xy|$ and $|x|\cdot |y|$ are always nonnegative, we find that 
+        \begin{equation*}
+            |xy| = |x|\cdot |y|.
+        \end{equation*}
+         \end{proof}
+         \item $\left| \dfrac{1}{x} \right|  = \dfrac{1}{\abs{x}}$, if $x\neq
+         0$.
+         \begin{proof} We make use of the previous exercise.
+              \begin{equation*}
+                \left| \frac{1}{x}\right| \cdot |x| = \left| \frac{1}{x}\cdot x\right| =  |1| = 1
+              \end{equation*}
+              therefore
+              \begin{equation*}
+                  \left| \frac{1}{x} \right| = \frac{1}{|x|}.
+              \end{equation*}
+         \end{proof}
+         \item $\dfrac{|x|}{|y|} = \left| \dfrac{x}{y}\right|$, if $y\neq 0$.
+         \begin{proof} It follows by using the result of the previous exercise,
+            \begin{equation*}
+                |x^{-1}| = |x|^{-1}.
+            \end{equation*}
+         \end{proof}
+         \item $|x-y| \leq |x|+|y|$.
+         \begin{proof} We make use of the \emph{Triangle Inequality} and the
+         fact that for all $x\in \R$, $|x|=|-x|$. Let $y_0 = -y$, 
+              \begin{align*}
+                  |x+y_0| &\leq |x|+|y_0|, \\
+                  |x+(-y)| &\leq |x|+|-y|, \\
+                  |x-y| &\leq |x|+|y|.
+              \end{align*}
+         \end{proof}
+         \item $|x|-|y| \leq |x-y|$.
+         \begin{proof} From the \emph{Triangle Inequality},
+              \begin{align*}
+                  |x| &= |(x-y)+y| \\
+                  & \leq |x-y|+|y|
+              \end{align*}
+              so that
+              \begin{equation*}
+                  |x|-|y| \leq |x-y|.
+              \end{equation*}
+         \end{proof}
+         \item $|(|x|-|y|)| \leq |x-y|$.
+         \begin{proof} To show that $|(|x|-|y|)| \leq |x-y|$, we must show that
+         $-|x-y| \leq |x|-|y| \leq |x-y|$.
+              \begin{itemize}
+                  \item The second inequality follows from the previous exercise. 
+                  \item The first inequality is the same as $|y|-|x| \leq |x-y|$, but this
+                  also follows from the previous exercises since $|y|-|x| \leq |y-x|=|x-y|$.
+              \end{itemize}
+         \end{proof}
+         \item $|x+y+z| \leq |x|+|y|+|z|$.
+         \begin{proof} We just apply the \emph{Triangle Inequality} multiple times.
+              \begin{align*}
+                |x+y+z| &\leq |x|+|y+z| \\
+                &\leq |x|+|y|+|z|.
+              \end{align*}
+         \end{proof}
+     \end{enumerate}
+\end{exercise}
+\pagebreak
+\begin{exercise}[\textbf{14}] Prove the following
+     \begin{enumerate}
+        \item Prove that $|a|=|-a|$.
+        \begin{proof} If $a \geq 0$, then $-a \leq 0$ and its absolute value is
+             \begin{equation*}
+                 |-a| = -(-a) = a = |a|
+             \end{equation*}
+             Now, if $a \leq 0$, then $-a \geq 0$ so it follows from the
+             previous one that $|a|=|-a|$.
+        \end{proof}
+        \item Prove that $-b \leq a \leq b$ if and only if $|a| \leq b$. In
+        particular, it follows that $-|a| \leq a \leq |a|$.
+        \begin{proof} This is a biconditional, so we prove it in both directions.
+             
+            Assume that $-b \leq a \leq b$. If $a \geq 0$, then 
+            \begin{equation*}
+                |a| = a \leq b.
+            \end{equation*}
+            If $a \leq 0$ and also notice that $-a \leq b$, then
+            \begin{equation*}
+                |a|=-a \leq b.
+            \end{equation*}
+
+            For the converse, we assume that $|a|\leq b$ and it follows that $b\geq0$. If $a\geq 0$, then
+            \begin{equation*}
+                a=|a|\leq b.
+            \end{equation*}   
+            and 
+            \begin{equation*}
+                -b \leq 0 \leq a.
+            \end{equation*}
+            Now, if $a\leq 0$, then $-a = |a|\leq b$ so that 
+            \begin{equation*}
+                -b \leq a.
+            \end{equation*}
+            and
+            \begin{equation*}
+                a \leq 0 \leq b.
+            \end{equation*}
+        \end{proof}
+        \item Use this fact to give a new proof that $|a+b| \leq |a|+|b|$.
+        \begin{proof} We make use of the fact that $-|a| \leq a \leq |a|$ and
+        $-|b| \leq b \leq |b|$, and it follows that
+             \begin{equation*}
+                 -(|a|+|b|) \leq a+b \leq |a|+|b|,
+             \end{equation*}
+             so $|a+b| \leq |a| + |b|$.
+        \end{proof}
+     \end{enumerate}
+\end{exercise}
+\pagebreak
+\begin{exercise}[\textbf{18}] Prove the following
+     \begin{enumerate}
+         \item Suppose that $b^2-4c \geq 0$. Show that the numbers 
+         \begin{equation*}
+             \frac{-b+\sqrt{b^2-4c}}{2}, \qquad \frac{-b-\sqrt{b^2-4c}}{2}
+         \end{equation*}
+         both satisfy the equation $x^2+bx+c=0$.
+         \begin{proof} From the equation, we can find that
+              \begin{align*}
+                  x^2+bx+c &= 0, \\
+                  \left(x+ \frac{b}{2}\right)^2 &= -c+\frac{b^2}{4}, \\
+                  \left| x+\frac{b}{2} \right| &= \frac{\sqrt{b^2-4c}}{|2|}, \\
+                  x &= \frac{-b\pm \sqrt{b^2-4c}}{2}.
+              \end{align*}
+         \end{proof}
+         \item Suppose that $b^2-4c < 0$. Show there are no numbers $x$
+         satisfying $x^2+bx+c=0$; in fact, $x^2+bx+c > 0$ for all $x$.
+         \begin{proof} We complete the square
+              \begin{align*}
+                  x^2+bx+c &= \left( x+\frac{b}{2}\right)^2 + c-\frac{b^2}{4} \\
+                  &= \left( x+\frac{b}{2}\right)^2-\left( \frac{b^2-4c}{4}\right)
+              \end{align*}
+              We know that squares are always nonnegative, and also we know that
+              $b^2-4c <0$ so the second term is always positive. Therefore
+              $x^2+bx+c$ is always positive for all $x$.
+         \end{proof}
+     \item Use this fact to give another proof that if $x$ and $y$ are not both
+     $0$, then $x^2+xy+y^2>0$.
+     \begin{proof} From the previous exercise, we make $y^2-4y^2<0$ to assure
+     that $x^2+xy+y^2 >0$ for all $x$, given that $y\neq 0$ (since $y^2-4y^2 =
+     0$ if $y=0$). In the case that $y=0$, $x^2+xy+y^2 = x^2$ is still positive given
+     that $x\neq 0$.          
+     \end{proof}
+     \pagebreak
+    \item For which numbers $\alpha $ is it true that $x^2+\alpha xy+y^2 >0$
+    whenever $x$ and $y$ are not both $0$.
+    \begin{proof} From the previous exercise, $b^2-4c = (\alpha y)^2-4y^2 <0$
+    will assure that $x^2+\alpha xy+y^2 >0$, given that both $x$ and $y$ are not
+    $0$. 
+
+    We just solve for the values of $\alpha$ that will assure $(\alpha y)^2
+    -4y^2$ is less than zero.
+    \begin{align*}
+        (\alpha y)^2 -4y^2 &<0, \\
+        \alpha^2 y^2 &< 4y^2, \\
+        \alpha ^2 &< 4, \\
+        |\alpha | &< 2. \\
+    \end{align*}
+    so the values of $\alpha$ that will make $x^2+\alpha xy +y^2 >0$ are
+    \begin{equation*}
+        -2 <\alpha < 2.
+    \end{equation*}
+    \end{proof}
+    \item Find the smallest possible value of $x^2+bx+c$ and of $ax^2+bx+c$, for
+    $a>0$.
+    \begin{proof} By completing the square, we can find the minimum value.
+        \begin{equation*}
+            x^2+bx+c = \left( x+\frac{b}{2}\right)^2 +c-\frac{b^2}{4},
+        \end{equation*}
+        and the minimum $c-\dfrac{b^2}{4}$ is achieved if $x= -\dfrac{b}{2}$.
+
+        For $ax^2+bx+c$ where $a>0$,
+        \begin{align*}
+            ax^2+bx+c &= a\left(x^2+\frac{b}{a}x\right)+c \\
+            &= a\left( x+ \frac{b}{2a}\right)^2 + c- \frac{b^2}{4a},
+        \end{align*}
+        and the minimum $c-\dfrac{b^2}{4a}$ is achieved if $x= -\dfrac{b}{2a}$.
+    \end{proof}
 \end{enumerate}
 \end{exercise}
