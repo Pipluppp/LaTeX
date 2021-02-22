@@ -1,3 +1,4 @@
+\pagebreak
 \subsection{Number of Various Sorts}
 \begin{defi}[Mathematical Induction] Suppose that $P(x)$ means that the property
 $P$ holds for the number $x$. Then the principle of mathematical induction
@@ -11,5 +12,94 @@ states that $P(x)$ holds for all natural numbers $x$ provided that
 (Note: In the construction of the natural numbers from the \emph{Peano Axioms},
 induction is an axiom and $0$ is an element of the naturals.)
 
+\begin{defi}[Strong Induction] We use a stronger hypothesis since in some cases
+it happens that in order to prove $P(k+1)$ we must assume not only $P(k)$, but
+also $P(l)$ for all natural numbers $l \leq k$. $P(x)$ holds for all natural
+numbers $x$ provideded that
+\begin{itemize}
+    \item $P(1)$ is true
+    \item $P(k+1)$ is true, if $P(l)$ is true for $1<l \leq k$
+\end{itemize}
+\end{defi}
+
+\begin{defi}[Recursive Definitions] A \emph{recursive definition} of a function
+defines values of the function for some inputs in terms of the values of the
+function for other inputs.
+\end{defi}
+
+For example, the number $n!$ is defined as the product of all then natural
+numbers less then or equal to $n$:
+\begin{equation*}
+    n! = 1\ \cdot 2 \cdot 3 \cdot \dotsc \cdot (n-1) \cdot n.
+\end{equation*} 
+More formally:
+\begin{align}
+    1! &= 1 \\
+    n!&=n\cdot (n-1)!.
+\end{align}
+
+Another example is the convenient notation regarding sums. Instead of writing 
+\begin{equation*}
+    a_1 + a_1 + \dotsb + a_n.
+\end{equation*}
+we will use the Greek letter $\Sigma$ and write
+\begin{equation*}
+    \sum \limits_{i=1}^{n} a_i. 
+\end{equation*}
+
+The define $\sum \limits_{i=1}^{n} a_i$ precisely really requires a recursive
+definition:
+\begin{align}
+    \sum \limits_{i=1}^{1} a_i &= a_1, \\
+    \sum \limits_{i=1}^{n} a_i &= \sum \limits_{i=1}^{n-1} a_i + a_n.   
+\end{align}
+
+As an example where induction is used for its proof, 
+\begin{equation*}
+    \sum \limits_{i=1}^{n} i = \frac{n(n+1)}{2}
+\end{equation*}
+
+\pagebreak
 \subsubsection{Exercises}
-(Next time nalang)
+\begin{exercise}[\textbf{1}] Prove the following formulas by induction.
+     \begin{enumerate}
+         \item $1^2 + \dotsb + n^2 = \dfrac{n(n+1)(2n+1)}{6}$.
+         \begin{proof} We induct on $n$. For the base case $n=1$, the equation
+         is trivial.
+        \begin{align*}
+            1^2 &= \frac{1(1+1)(2(1)+1)}{6} \\
+            &= \frac{2(3)}{6} \\
+            &= 1
+        \end{align*}
+        Now we assume that the equation hold for arbitrary $n$, and we shall
+        prove that it also hold for $n+1$.
+        \begin{align*}
+            1^2+\dotsb +n^2+(n+1)^2 &= \sum \limits_{i=1} ^{n+1} i^2 \\
+            &=  \sum \limits_{i=1} ^{n} i^2 + (n+1)^2 \\
+            &= \frac{n(n+1)(2n+1)}{6} + (n+1)^2 \\
+            &= \frac{n(n+1)(2n+1)+6(n+1)^2}{6} \\
+            &= \frac{(n+1)[2n^2+n+6n+6]}{6} \\
+            &= \frac{(n+1)(n+2)(2(n+1)+1)}{6}.
+        \end{align*}
+        Hence, the equation hold for all natural numbers.
+         \end{proof}
+         \item $1^3+\dotsb +n^3 =(1+\dotsb +n)^2$.
+         \begin{proof} We induct on $n$ and prove the base case $n=1$,
+              \begin{equation*}
+                  1^3 = (1)^2
+              \end{equation*}
+              which is trivial. 
+              
+              Let us now assume that the equation hold for
+              arbitrary $n$. We must now show that it also hold for $n+1$.
+              \begin{align*}
+                  (1+\dotsb +(n+1))^2 &= (n+1)(2(1+\dotsb +n)+(n+1)) + (1+\dotsb +n)^2 \\
+                  &= (1^3+\dotsb +n^3)+(n+1)(2(1+\dotsb +n)+(n+1)) \\
+                  &= (1^3+\dotsb +n^3) + (n+1)(2\cdot \frac{n(n+1)}{2}+n+1) \\
+                  &= (1^3+\dotsb +n^3) + (n+1)((n+1)(n+1)) \\
+                  &= 1^3+\dotsb +(n+1)^3
+              \end{align*}
+              Hence, the equation holds for all natural numbers.
+         \end{proof}
+     \end{enumerate}
+\end{exercise}
