@@ -1,0 +1,156 @@
+\subsection{Functions}
+\begin{defi}[Axioms of Equality]
+    a relation linking two objects $x,y$ of the same type $T$. How equlity is
+    defined depends on the class $T$ of objects under consideration. We require
+    equality to obey the four \emph{axioms of equality}.
+    \begin{itemize}
+        \item (Reflexive Axiom). Given any object $x$, we have $x=x$.
+        \item (Symmetry Axioms). Given any two objects $x$ and $y$ of the same
+        type, if $x=y$, then $y=x$.
+        \item (Transitive Axiom). Given any three objects $x,y,z$ of the same
+        type, if $x=y$ and $y=z$, then $x=z$.
+        \item (Substitution Axiom). Given any two objects $x$ and $y$ of the
+        same type, if $x=y$, then $f(x)=f(y)$ for all functions or operations
+        $f$.
+    \end{itemize}
+\end{defi}
+\begin{defi}[Equality of Functions] Functions $f:X\to Y$ and $g:X\to Y$ with
+same domain and range are equal, if and only if $f(x)=g(x)$ for all $x\in X$.
+     
+\end{defi}
+\begin{exercise}[3.3.1] 
+     Show that the definition of the equality of functions is a
+     reflexive, symmetric, and transitive. Also verify the substitution
+     proeprty: if $f, \tilde{f}:X \to Y$ and $g,\tilde{g}:Y\to Z$ are functions
+     such that $f=\tilde{f}$ and $g=\tilde{g}$, then $g\circ f = g\circ
+     \tilde{f}$.
+     \begin{proof}
+          We seperate each property and make use of the \emph{Axioms of
+          Equality}.
+          \begin{itemize}
+              \item(Reflexive). Let $f:X\to Y$ be a function and $x\in X$. Then
+              there exists $f(x)\in Y$, and by the \emph{reflexive axiom} of
+              equality
+              \begin{equation*}
+                  f(x)=f(x).
+              \end{equation*}
+              Hence, $f=f$, since $x$ is an arbitrary element of $X$.
+              \item(Symmetric). Let $f:X\to Y$and $g:X\to Y$ be functions and
+              $x\in X$ be arbitrary. Assume for $f(x), g(x)\in Y$ that
+              \begin{equation*}
+                  f(x)=g(x),
+              \end{equation*}
+              by the \emph{symmetry axiom} of equality of objects of the same type,
+              \begin{equation*}
+                  g(x)=f(x).
+              \end{equation*}
+              Therefore, $f=g$ implies $g=f$.
+              \item(Transitivity). Let $f,g,h$ be functions with domain $X$ and
+              range $Y$. Assume that $f=g$ and $g=h$, so that for all $x\in X$,
+              \begin{equation*}
+                  f(x)=g(x) \quad \text{and} \quad g(x)=h(x),
+              \end{equation*}
+              where $f(x),g(x),h(x)\in Y$. By the \emph{trasitivity axiom} of
+              equality, 
+              \begin{equation*}
+                  f(x)=h(x).
+              \end{equation*}
+              Since $x$ is arbitrary, $f=h$.
+              \pagebreak
+              \item(Substitution). Let $f,\tilde{f}:X\to Y$ and
+              $g,\tilde{g}:Y\to Z$ be functions such that $f=\tilde{f}$ and
+              $g=\tilde{g}$. Hence, $f(x)=\tilde{f}(x)$ for all $x\in X$ and
+              $g(y)=\tilde{g}(y)$ for all $y\in Y$.
+
+              To show that $g\circ f = \tilde{g}\circ \tilde{f}$, we must show
+              that $(g\circ f)(x)=(\tilde{g}\circ \tilde{f})(x)$ for all $x\in
+              X$. The two functions already have the same domain and range.
+
+              We make use of the \emph{subsitution axiom} of equality, on the
+              elements $f(x),\tilde{f}(x)\in Y$, and notice that $g,\tilde{g}$
+              are functions.
+              \begin{equation*}
+                  f(x)=\tilde{f}(x) \quad \Longrightarrow \quad g(f(x))=g(\tilde{f}(x)),
+              \end{equation*}
+              and it follows that 
+              \begin{equation*}
+                  g(\tilde{f}(x))=\tilde{g}(\tilde{f}(x)).
+              \end{equation*}
+              Making use of the \emph{axioms of equality}, 
+              \begin{equation*}
+                  (g\circ f)(x)=g(f(x))=g(\tilde{f}(x))=\tilde{g}(\tilde{f}(x))=(\tilde{g}\circ \tilde{f})(x).
+              \end{equation*}
+              Which holds for all $x\in X$, hence, $g\circ f = \tilde{g}\circ \tilde{f}$.
+          \end{itemize}
+     \end{proof}
+\end{exercise}
+\begin{exercise}[3.3.2] Let $f:X\to Y$ and $g:Y\to Z$ be functions. Show that if
+$f$ and $g$ are both injective, then so is $g\circ f$; similarly, show that if
+$f$ and $g$ are both surjective, then so is $g\circ f$.
+     \begin{proof} There are two proofs we need to do:
+          \begin{itemize}
+              \item(Injective). Let $x,x'\in X$ be arbitrary. Assume that $f$ and $g$ are both
+              injective. Since $g$ is injective and $f(x),f(x')\in Y$,
+              \begin{equation*}
+                  g(f(x)) = g(f(x')) \implies f(x)=f(x'). 
+              \end{equation*}
+              We also know that $f$ is injective and $x,x' \in X$ so that
+              \begin{equation*}
+                  f(x)=f(x') \implies x=x'.
+              \end{equation*}
+              Therefore, 
+              \begin{equation*}
+                  g(f(x))=g(f(x'))\implies x=x',
+              \end{equation*}
+              Hence, $g\circ f$ is injective.
+              \item(Surjective). Assume $f$ and $g$ are surjective. By the
+              definition of surjection, 
+              \begin{equation*}
+                  \forall z\in Z, \exists y\in Y \;st.\; g(y)=z,
+              \end{equation*}
+              and 
+              \begin{equation*}
+                  \forall y \in Y \exists x \in X \;st.\; f(x)=y.
+              \end{equation*}
+              Therefore, for every $z\in Z$, we can choose an $x\in X$ such that
+              \begin{equation*}
+                  z= g(y) = g(f(x)) = (g\circ f)(x).
+              \end{equation*}
+              Hence, $g\circ f$ is surjective.
+          \end{itemize}
+     \end{proof}
+\end{exercise}
+\pagebreak
+\begin{exercise}[3.3.3] When is the \emph{empty function} injective? surjective?
+    bijective? (The empty function $f:\emptyset \to Y$ is a function with the
+    empty set as its domain).
+     \begin{proof} A function $f$ is injective if for arbitrary $x,x'$ in its
+     domain,
+     \begin{equation*}
+         x\neq x' \implies f(x)\neq f(x').
+     \end{equation*}
+     Notice that there exists no element in the empty set, hence the
+     \emph{empty function} is always injective no matter the range is.
+
+     A function is surjective if for every $y$ in its range, there exists $x$
+     in its domain such that
+     \begin{equation*}
+         f(x)=y.
+     \end{equation*}
+     Notice that if the range is nonempty, then there exists an element in the
+     range wherein $f(x)=y$ is not satisfied since the empty set has no
+     element. Therefore, if the range is empty, then the \emph{empty function}
+     is surjective vacuously.
+
+     The \emph{empty function} is bijective if the range is empty.
+    \end{proof}
+\end{exercise}
+\begin{exercise}[3.3.4] Let $f:X\to Y, \tilde{f}:X\to Y, g:Y\to Z, $and
+$\tilde{g}:y\to Z$ be functions. Show that if $g\circ f = g\circ \tilde{f}$ and
+$g$ is injective, then $f=\tilde{f}$. Is the same statement true if $g$ is not
+injective? Show that if $g\circ f=\tilde{g}\circ f$ and $f$ is injective, then
+$g=\tilde{g}$. Is the same statement true if $f$ is not surjective?
+     \begin{proof}
+          
+     \end{proof}
+\end{exercise}  
