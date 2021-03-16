@@ -129,3 +129,87 @@ As an example where induction is used for its proof,
         \end{proof}
      \end{enumerate}
 \end{exercise}
+\pagebreak
+\begin{exercise}[\textbf{3}] If $0\leq k \leq n$, the \emph{"binomial
+    coefficient"} $\dbinom{n}{k}$ is defined by 
+    \begin{equation*}
+        \binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{n(n-1)\dotsb (n-k+1)}{k!}, \text{if }k\neq 0, n 
+    \end{equation*}
+     and a special case of the first formula if we define $0!=1$,
+     \begin{equation*}
+         \binom{n}{0}=\binom{n}{n}=1,
+     \end{equation*}    
+     and for $k<0$ or $k>n$ we just define the binomial coefficient to be $0$.
+     \begin{enumerate}
+         \item Prove that
+         \begin{equation*}
+             \binom{n+1}{k}=\binom{n}{k-1}+\binom{n}{k}.
+         \end{equation*}
+         \begin{proof} It is just a manipulation of the expressions and from the fact that,
+            \begin{equation*}
+                \binom{n+1}{k} = \frac{(n+1)!}{(n+1-k)!k!}.
+            \end{equation*}
+            Now for the proof,
+              \begin{align*}
+                \binom{n}{k-1}+\binom{n}{k} &= \frac{n!}{(n+1-k)!(k-1)!} +\frac{n!}{(n-k)!k!}\\
+                  &= \frac{n!k+n!(n+1-k)}{(n+1-k)!k!} \\
+                  &= \frac{(n+1)!}{(n+1-k)!k!}.
+              \end{align*}
+         \end{proof}
+         This relation gives rise to the following configuration, known as
+         \emph{"Pascal's Triangle"}\textemdash  a number not on one of the sides
+         is the sum of the two numbers above it; the binomial coefficient
+         $\dbinom{n}{k}$ is the $(k+1)$st number in the $(n+1)$st row.
+         \item Notice that all the numbers in Pascal's Triangle are natural
+         numbers. Use part (i) to prove by induction that $\dbinom{n}{k}$ is
+         always a natural number.
+         \begin{proof} We want to prove the assertion that for fixed $n$ (Note: The case $k=0$ is trivial),
+            \begin{equation*}
+                \binom{n}{k} \text{is a natural number for all }k, 1\leq k \leq n.
+            \end{equation*}
+            We prove it by induction on $n$. For the base case where $n=1$, we
+            only need to prove for $k=1$.
+            \begin{equation*}
+                \binom{1}{1} =1.
+            \end{equation*}
+            For the inductive step, we assume that the assertion is true for
+            arbitrary $n$ and we will show that 
+            \begin{equation*}
+                \binom{n+1}{k} \text{ is a natural number for all }k, 1\leq k\leq n+1.
+            \end{equation*}
+            The case where $k=1$ and $k=n+1$ are trivial. We can now assume that
+            for $2\leq k\leq n$, it must be that  $1\leq k-1< k\leq n$ and we
+            can make use this with part (i)
+            \begin{equation*}
+                \binom{n+1}{k} = \binom{n}{k-1}+\binom{n}{k}, 
+            \end{equation*}
+            since the sum of naturals is a natural, $\binom{n+1}{k}$ is
+            natural. We have shown that $\binom{n+1}{k}$ is natural for
+            all $k$, $1\leq k \leq n+1$ if $\binom{n}{k}$ is natural for all k
+            $1\leq k \leq n$. Hence, the induction is complete.
+         \end{proof}
+         \item Give another proof that $\dbinom{n}{k}$ is natural number by
+         showing that $\dbinom{n}{k}$ is the number of sets of exactly $k$
+         integers each chosen from $1,\dotsc , n$.
+         \begin{proof} In choosing $k$ objects from $n$, there are $n(n-1)\dotsb
+         (n-k+1)$ ways to choose a set with $k$ elements, $\{k_1,\dotsc, k_n
+         \}$. However, for each set the $k$ objects can be arranged in $k!$
+         ways, that is why we divide by $k!$ as the order of the $k$th element
+         in a certain set with the same elements does not matter. Hence, 
+         \begin{equation*}
+             \binom{n}{k} = \frac{n(n-1)\dotsc (n-k+1)}{k!} = \frac{n!}{(n-k)!k!},
+         \end{equation*}
+              is the number of sets of exactly $k$ integers chosen from $n$ and
+              that is why $\binom{n}{k}$ is always a natural.
+         \end{proof}
+         \item Prove the \emph{"binomial theorem"}: If $a$ and $b$ are any
+         numbers and $n$ is a natural number, then 
+         \begin{align*}
+             (a+b)^n &= a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2 +\dotsb +\binom{n}{n-1}ab^{n-1}+b^n \\
+             &= \sum \limits_{j=0}^{n}\binom{n}{j}a^{n-j}b^j.
+         \end{align*}
+         \begin{proof}
+              To be continued...
+         \end{proof}
+         \end{enumerate}
+\end{exercise}
