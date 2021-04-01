@@ -202,14 +202,101 @@ As an example where induction is used for its proof,
               is the number of sets of exactly $k$ integers chosen from $n$ and
               that is why $\binom{n}{k}$ is always a natural.
          \end{proof}
-         \item Prove the \emph{"binomial theorem"}: If $a$ and $b$ are any
+         \pagebreak
+         \item Prove the \emph{Binomial Theorem}: If $a$ and $b$ are any
          numbers and $n$ is a natural number, then 
          \begin{align*}
              (a+b)^n &= a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2 +\dotsb +\binom{n}{n-1}ab^{n-1}+b^n \\
              &= \sum \limits_{j=0}^{n}\binom{n}{j}a^{n-j}b^j.
          \end{align*}
-         \begin{proof}
-              To be continued...
+         \begin{proof}We prove by induction. For the base case, let $n=1$ in which we get
+              \begin{equation*}
+                  (a+b)^1=a+b = \binom{1}{0}a+\binom{1}{1}b = \sum\limits_{j=0}^{1}\binom{1}{j}a^{1-j}b^j.
+              \end{equation*}
+              For the inductive step, we assume that the property holds for
+              arbitrary $n=k$. We now show that it also holds for $n=k+1$.
+              \begin{align*}
+                  (a+b)^{k+1}&=(a+b)\sum\limits_{j=0}^{k}\binom{k}{j}a^{k-j}b^{j} \\
+                  &= \left( \sum\limits_{j=0}^{k}\binom{k}{j}a^{(k+1)-j}b^{j} \right)+ \left(\sum\limits_{j=1}^{k+1}\binom{k}{j-1}a^{(k+1)-j}b^{j}\right) \\
+                  &= \left( a^{k+1}+\sum\limits_{j=1}^{k}\binom{k}{j}a^{(k+1)-j}b^{j}\right) +\left( b^{k+1}+\sum\limits_{j=1}^{k}\binom{k}{j-1}a^{(k+1)-j}b^{j}\right) \\
+                  &= a^{k+1}+b^{k+1}+\sum\limits_{j=1}^{k}\binom{k}{j}a^{(k+1)-j}b^{j} + \binom{k}{j-1}a^{(k+1)-j}b^{j} \\
+                  &= a^{k+1}+b^{k+1}+\sum\limits_{j=1}^{k} (a^{(k+1)-j}b^{j})\left( \binom{k}{j}+\binom{k}{j-1}\right) \\ 
+                  &= a^{k+1}+b^{k+1}+\sum\limits_{j=1}^{k} (a^{(k+1)-j}b^{j}) \binom{k+1}{j} \\
+                  &= \sum\limits_{j=0}^{k+1} (a^{(k+1)-j}b^{j}) \binom{k+1}{j}.
+              \end{align*}
          \end{proof}
+         \begin{remark}
+         To better understand it, an expression $(a^n+\dotsb+b^n)$ have $n+1$
+         terms and if multiplied by $(a+b)$, the resulting expression will have
+         $2n+2$ terms. The ``ends'' of the expression, $a^{n+1}$ and $b^{n+1}$
+         represent the two terms, while the $2n$ terms will be reduced to $n$
+         terms. The first sum $^1 a(a^n+\dotsb b^n)$ will have its
+         $2$nd-$(n+1)$th term match the $1$st-$n$th term of the second sum $^2
+         b(a^n+\dotsb b^n)$. The two sums have the same indexing of the terms
+         (The coefficient is dependent on the $i$th index), hence the coefficient
+         $\tbinom{n}{k}$ of these terms differ, since the $k$th term of the
+         first sum, except for the "end" terms, will match to the $(k-1)$th term
+         of the second term.
+         \end{remark}
+         \item Prove that 
+         \begin{enumerate}
+             \item $\sum\limits_{j=0}^{n}\binom{n}{j}=\binom{n}{0}+\dotsb+\binom{n}{n}=2^n$.
+             \begin{proof}To be continued...
+                  
+             \end{proof}
          \end{enumerate}
+    \end{enumerate}
+\begin{exercise}[$\vec{4}$] 
+     \begin{enumerate} Prove the following:
+         \item Prove that
+         \begin{equation*}
+             \sum\limits_{k=0}^{l}\binom{n}{k}\binom{m}{l-k}=\binom{n+m}{l}.
+         \end{equation*}
+         Hint: Apply the binomial theorem to $(1+x)^n(1+x)^m$.
+
+         \begin{proof}We apply the binomial theorem to get 
+              \begin{equation*}
+                  \sum\limits_{k=0}^{n}\binom{n}{k}x^k\sum\limits_{j=0}^{m}\binom{m}{j}x^j =\sum\limits_{l=0}^{n+m}\binom{n+m}{l}x^l.
+              \end{equation*}
+              The LHS and RHS are both polynomials, and notice that if
+              polynomials are equal, then the coefficients of each term with the
+              same degree is equal. We just find another form of the LHS that
+              seperates the coefficient of each term so that we can equate the
+              coefficient to the RHS.
+              \begin{equation*}
+                \sum_{l=0}^{n+m} \Bigg( \sum_{\substack{0\le k\le n\\0\le j\le m\\k+j=l}} \binom{n}{k} \binom{m}{j}\Bigg) x^l = \sum_{l=0}^{n+m} \binom{n+m}{l} x^l.
+              \end{equation*}
+              Then, $k+j=l$ and $j=l-k$ , we find
+              \begin{equation*}
+                \sum_{l=0}^{n+m} \Bigg( \sum_{k=0}^l \binom{n}{k} \binom{m}{l-k}\Bigg) x^l = \sum_{l=0}^{n+m} \binom{n+m}{l} x^l.
+              \end{equation*}
+              We can now compare the coefficients and we see that 
+              \begin{equation*}
+                \sum_{k=0}^l \binom{n}{k} \binom{m}{l-k} = \sum_{l=0}^{n+m} \binom{n+m}{l} x^l.
+              \end{equation*}
+         \end{proof}
+         \begin{remark} The proof/idea is taken from
+            \url{https://math.stackexchange.com/a/3950826}, and further discussions
+            can be found on \url{https://math.stackexchange.com/a/3950826}.         
+            \end{remark}
+         \item Prove that
+         \begin{equation*}
+             \sum\limits_{k=0}^{n}\binom{n}{k}^2=\binom{2n}{n}.
+         \end{equation*}
+     \end{enumerate}
+\end{exercise}
+    \begin{exercise}[$\vec{8}$] Prove that every natural number is either even or odd.
+        \begin{proof} We prove by induction. For $n=1$, it is trivial since $1$ is odd.
+             Now, we assume that for arbitrary $k\in N$, it is either even or odd. 
+             \begin{itemize}
+                 \item If $k$ is even, so $k=2c$ for some $c\in \Z^+$, then
+                 $k+1=2c+1$ which is odd.
+                 \item If $k$ is odd, so $k=2d+1$ for some $d\in \Z^+$, then
+                 $k+1=2(c+2)$ and we know that $c+2\in \Z^+$, hence $k+1$ is
+                 even.
+             \end{itemize}
+             We have shown that if $k$ is either even or odd, then $k+1$ is also
+             even or odd. The induction is complete.
+        \end{proof}
+    \end{exercise}
 \end{exercise}
